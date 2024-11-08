@@ -1,5 +1,9 @@
 package com.projectJEE;
 
+import com.projectJEE.repositories.*;
+import com.projectJEE.tables.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,18 +16,19 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		SpringApplication.run(ProjectJeeApplication.class, args);
 	}
 	
-	/*
-	@Autowired 
-	CustomerRepository customerRepository;
 	
 	@Autowired 
-	PassportRepository passportRepository;
-	*/
+	ProductRepository productRepository;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{	
 		
+		//Test ajout d'un product
+		Product testProduit = new Product();
+		testProduit.setName("Ginseng");
+		testProduit.setType(ProductType.PLANT);
 		
+		productRepository.save(testProduit);
 		
 	}
 	

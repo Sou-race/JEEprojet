@@ -1,6 +1,0 @@
-package com.projectJEE.tables;
-
-@Entity
-public class Product {
-
-}

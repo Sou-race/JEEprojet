@@ -30,10 +30,10 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		
 		/*
 		Product testProduit = new Product();
-		testProduit.setName("Aloeswood");
-		testProduit.setOtherNames(new ArrayList<>(Arrays.asList("Wood of Gods", "Agarwood", "eaglewood", "oudh ")));
-		testProduit.setDescription("a quite luxury wood used for incenses");
-		testProduit.setType(ProductType.WOOD);
+		testProduit.setName("Cattails (pollen)");
+		testProduit.setOtherNames(new ArrayList<>(Arrays.asList("Pu Huang", "Pollen Typhae", "Bulrush", "蒲黄")));
+		testProduit.setDescription("Herbs that can be used as a diuretic or to aid clotting, yadayada");
+		testProduit.setType(ProductType.PLANT);
 		
 		
 		productRepository.save(testProduit);

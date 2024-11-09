@@ -9,15 +9,15 @@
 <main class="container">
 
 	<h1>All our marvellous product :</h1>
-	<h2>A h2 title</h2>
-	<h3>A h3 title</h3>
 	
 	<ul>
 		<li th:each="product : ${products}">
-			<span th:text="${product.name}">(NAME)</span> 
-			<span th:text="${product.othernames}">(OTHER_NAMES)</span> 
-			<span th:text="${product.description}">(DESCRIPT)</span> 
-		</li>
+			<span th:text="${product.name}">(NAME) | </span> 
+			
+			<span th:text="${product.otherNames}">(OTHER_NAMES) | </span> 
+			<span th:text="${product.description}">(DESCRIPT)</span>
+			 
+		</li> 
 	</ul>
 	
 </main>

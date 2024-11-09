@@ -12,7 +12,7 @@ import com.projectJEE.repositories.ProductRepository;
 import com.projectJEE.tables.Product;
 
 @Controller
-public class ProductController implements ErrorController{
+public class ProductController {
 	
 	@Autowired 
 	ProductRepository productRepository;

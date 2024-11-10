@@ -10,6 +10,7 @@
 
 	<h1>All our marvellous product :</h1>
 	
+	<!--
 	<ul>
 		<li th:each="product : ${products}">
 			<span th:text="${product.name}">(NAME) | </span> 
@@ -19,6 +20,25 @@
 			 
 		</li> 
 	</ul>
+	 -->
+	
+	
+	<table>
+		<thead>
+			
+		</thead>
+		
+		<tr th:each="product : ${products}">
+			<td th:text="${product.id}">XXX</td>
+			<td th:text="${product.name}">(NAME)</td>
+			<td>
+				<ul>
+					<li th:each="item : ${product.otherNames}" th:text="${item}">(OTHER NAMES)</li>
+				</ul>
+			</td>
+			<td th:text="${product.description}">(DESCRIPT)</td>
+		</tr>
+	</table>
 	
 </main>
 </body>

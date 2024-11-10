@@ -23,21 +23,34 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	@Autowired 
 	ProductRepository productRepository;
 	
+	@Autowired 
+	StockRepository stockRepository;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{	
 		
-		//Test ajout d'un product
+		//Test ajout d'un product et son étagère :		
 		
-		/*
 		Product testProduit = new Product();
 		testProduit.setName("Cattails (pollen)");
 		testProduit.setOtherNames(new ArrayList<>(Arrays.asList("Pu Huang", "Pollen Typhae", "Bulrush", "蒲黄")));
-		testProduit.setDescription("Herbs that can be used as a diuretic or to aid clotting, yadayada");
-		testProduit.setType(ProductType.PLANT);
+		testProduit.setDescription("Pollen that can be used as a diuretic or to aid clotting ; it is collected in summer, directly from the flowers after being dried. Light smell or taste.");
+		testProduit.setType(ProductType.PLANT);		
+
+		Stock testStock = new Stock();
+		testStock.setQuantity(40);
+		testStock.setUnit("g");
+		testStock.setShelfNumber(3);
 		
+		//Comme c'est Product qui a l'id du Stock, faut save stock avant sinon explosion
+		stockRepository.save(testStock);
+		
+		testProduit.setStock(testStock);
+	    testStock.setStockedProduct(testProduit);
 		
 		productRepository.save(testProduit);
-		*/
+		
+		
 	}
 	
 }

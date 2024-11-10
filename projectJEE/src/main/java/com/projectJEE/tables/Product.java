@@ -6,11 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Product {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long id;
 	
 	private String name = "";
@@ -24,6 +26,11 @@ public class Product {
 	private Float price;
 	
 	private String picLink;
+	
+	@OneToOne
+	private Stock stock;
+
+	
 
 	public Long getId() {
 		return id;
@@ -83,6 +90,15 @@ public class Product {
 		this.picLink = picLink;
 	}
 	
-		
+	public Stock getStock() {
+		return stock;
+	}
+
+	public void setStock(Stock stock) {
+		this.stock = stock;
+		if (stock != null && stock.getStockedProduct() != this) {
+	        stock.setStockedProduct(this);
+	    }
+	}	
 	
 }

@@ -51,6 +51,17 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		testStock.setUnit("g");
 		testStock.setShelfNumber(3);
 		
+		Stock testStockA = new Stock();
+		testStockA.setQuantity(80);
+		testStockA.setUnit("piece(s)");
+		testStockA.setShelfNumber(7);
+		
+		Stock testStockB = new Stock();
+		testStockB.setQuantity(0);
+		testStockB.setUnit("Kg");
+		testStockB.setShelfNumber(2);		
+		
+		
 		//Comme c'est Stock qui a l'id du Produit, faut save produit avant sinon explosion
 		productRepository.save(testProduit);
 		productRepository.save(testProduitB);		
@@ -60,17 +71,13 @@ public class ProjectJeeApplication implements ApplicationRunner{
 				
 		stockRepository.save(testStock);
 		
-		Stock testStockA = new Stock();
-		testStockA.setQuantity(80);
-		testStockA.setUnit("piece(s)");
-		testStockA.setShelfNumber(7);
-		Stock testStockB = new Stock();
-		testStockB.setQuantity(0);
-		testStockB.setUnit("Kg");
-		testStockB.setShelfNumber(2);		
+		testProduitB.setStock(testStockB);
+		testStockB.setStockedProduct(testProduitB);
+		
+		stockRepository.save(testStockB);
 		
 		stockRepository.save(testStockA);
-		stockRepository.save(testStockB);
+		
 	}
 	
 }

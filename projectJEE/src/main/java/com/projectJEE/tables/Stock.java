@@ -15,11 +15,6 @@ public class Stock {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
-	/*TODO : transformer le shelfNumber en ID/clé primaire ?
-	 * ça sera + propre comme ça, et il sera unique
-	 * (mais faudra le laisser modifiable dans ses limites comme
-	 * on peeeut echanger des places d'elements dans une étagère)
-	 */	
 	@Min(value = 0, message = "This shelf number does not exist")
 	@Max(value = 150, message = "This shelf number does not exist. (We need to buy more furnitures !!)")
 	@OrderBy("shelfNumber ASC")

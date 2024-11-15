@@ -29,25 +29,10 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception{	
 		
-		//TestStart_AdingThreeObjects();
-		
-		/*
-		Stock testStock = new Stock();
-		testStock.setQuantity(80);
-		testStock.setUnit("piece(s)");
-		testStock.setShelfNumber(7);
-		Stock testStockB = new Stock();
-		testStockB.setQuantity(0);
-		testStockB.setUnit("Kg");
-		testStockB.setShelfNumber(2);		
-		
-		stockRepository.save(testStock);
-		stockRepository.save(testStockB);
-		*/
-		
+		//TestStart_AddingThreeObjects();		
 	}
 	
-	public void TestStart_AdingThreeObjects() {
+	public void TestStart_AddingThreeObjects() {
 		//Test ajout d'un product et son étagère :		
 		Product testProduit = new Product();
 		testProduit.setName("Cattails (pollen)");
@@ -74,6 +59,18 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		testStock.setStockedProduct(testProduit);
 				
 		stockRepository.save(testStock);
+		
+		Stock testStockA = new Stock();
+		testStockA.setQuantity(80);
+		testStockA.setUnit("piece(s)");
+		testStockA.setShelfNumber(7);
+		Stock testStockB = new Stock();
+		testStockB.setQuantity(0);
+		testStockB.setUnit("Kg");
+		testStockB.setShelfNumber(2);		
+		
+		stockRepository.save(testStockA);
+		stockRepository.save(testStockB);
 	}
 	
 }

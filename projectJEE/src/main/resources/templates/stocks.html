@@ -16,6 +16,8 @@
 	        <tr>
 	            <th>Shelf Number</th>
 	            <th>ID</th>
+	            <th>Stored Product Name</th>
+	            <th>Stored Product ID</th>
 	            <th>Quantity</th>
 	            <th>Unit</th>
 	            <th>Price Per Unit</th>
@@ -25,9 +27,8 @@
     		<tr th:each="stock : ${stocks}">
 				<td th:text="${stock.shelfNumber}">XXXX</td>
 				<td th:text="${stock.id}">XX</td>
-				<!--  
-				<td th:text="${stock.stockedProduct.name}">(PRODUCT NAME)</td>
-				-->
+				<td th:text="${stock.stockedProduct != null ? stock.stockedProduct.name : ''}">(ProductName)</td>
+				<td th:text="${stock.stockedProduct != null ? stock.stockedProduct.id : ''}">(ProductID)</td>
 				<td th:text="${stock.quantity}">(QUANTITY)</td>
 				<td th:text="${stock.unit}">(UNIT)</td>
 				<td th:text="${stock.pricePerUnit}">(PRICE_PER_UNIT)</td>

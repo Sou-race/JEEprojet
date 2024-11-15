@@ -19,5 +19,5 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	//TODO : doesn't seems to work (for now) :sad face:
 	//Optional<Stock> findByProduct(Product stockedProduct);
 	
-	List<Stock> findAllByOrderByShelfNumberAscIdAsc();
+	List<Stock> findAllByOrderByShelfNumber();
 }

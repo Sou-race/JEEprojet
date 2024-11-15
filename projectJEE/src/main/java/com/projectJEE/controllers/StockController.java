@@ -18,7 +18,7 @@ public class StockController {
 	
 	@GetMapping("/stocks")
 	public String showStockByOrder(Model model) {
-		List<Stock> stocks = stockRepository.findAllByOrderByShelfNumberAscIdAsc();		
+		List<Stock> stocks = stockRepository.findAllByOrderByShelfNumber();		
 		model.addAttribute("stocks", stocks);
 		return "stocks";
 	}

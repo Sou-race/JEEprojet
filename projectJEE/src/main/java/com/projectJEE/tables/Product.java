@@ -25,7 +25,7 @@ public class Product {
 	
 	private String picLink;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "stockedProduct")
 	private Stock stock;
 
 	

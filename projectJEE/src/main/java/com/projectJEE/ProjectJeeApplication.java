@@ -30,6 +30,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception{	
 		
 		//TestStart_AdingThreeObjects();
+		
 		/*
 		Stock testStock = new Stock();
 		testStock.setQuantity(80);
@@ -65,14 +66,14 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		testStock.setUnit("g");
 		testStock.setShelfNumber(3);
 		
-		//Comme c'est Product qui a l'id du Stock, faut save stock avant sinon explosion
-		stockRepository.save(testStock);
+		//Comme c'est Stock qui a l'id du Produit, faut save produit avant sinon explosion
+		productRepository.save(testProduit);
+		productRepository.save(testProduitB);		
 			
 		testProduit.setStock(testStock);
 		testStock.setStockedProduct(testProduit);
 				
-		productRepository.save(testProduit);
-		productRepository.save(testProduitB);
+		stockRepository.save(testStock);
 	}
 	
 }

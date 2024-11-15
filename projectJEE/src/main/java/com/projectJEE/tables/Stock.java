@@ -23,9 +23,9 @@ public class Stock {
 	@Min(value = 0, message = "This shelf number does not exist")
 	@Max(value = 150, message = "This shelf number does not exist. (We need to buy more furnitures !!)")
 	@OrderBy("shelfNumber ASC")
-	private int shelfNumber;
+	private int shelfNumber;	
 	
-	@OneToOne(mappedBy = "stock")
+	@OneToOne
 	private Product stockedProduct;
 	
 	private int quantity;

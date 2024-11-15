@@ -16,8 +16,8 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	@OrderBy("shelfNumber")
 	Optional<Stock> findByShelfNumber(int shelfNumber);
 	
-	//TODO : doesn't seems to work (for now) :sad face:
-	//Optional<Stock> findByProduct(Product stockedProduct);
+	Optional<Stock> findByStockedProduct(Product stockedProduct);
 	
 	List<Stock> findAllByOrderByShelfNumber();
+	List<Stock> findAllByOrderByStockedProduct();
 }

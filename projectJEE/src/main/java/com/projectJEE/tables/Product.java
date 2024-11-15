@@ -21,9 +21,7 @@ public class Product {
 	
 	private ProductType type;
 	
-	private String description;
-	
-	private Float price;
+	private String description;	
 	
 	private String picLink;
 	
@@ -72,14 +70,6 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Float getPrice() {
-		return price;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
 	}
 
 	public String getPicLink() {

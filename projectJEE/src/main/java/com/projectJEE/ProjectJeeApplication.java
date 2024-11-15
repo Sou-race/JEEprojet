@@ -29,13 +29,36 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception{	
 		
-		//Test ajout d'un product et son étagère :		
+		//TestStart_AdingThreeObjects();
+		/*
+		Stock testStock = new Stock();
+		testStock.setQuantity(80);
+		testStock.setUnit("piece(s)");
+		testStock.setShelfNumber(7);
+		Stock testStockB = new Stock();
+		testStockB.setQuantity(0);
+		testStockB.setUnit("Kg");
+		testStockB.setShelfNumber(2);		
 		
+		stockRepository.save(testStock);
+		stockRepository.save(testStockB);
+		*/
+		
+	}
+	
+	public void TestStart_AdingThreeObjects() {
+		//Test ajout d'un product et son étagère :		
 		Product testProduit = new Product();
 		testProduit.setName("Cattails (pollen)");
 		testProduit.setOtherNames(new ArrayList<>(Arrays.asList("Pu Huang", "Pollen Typhae", "Bulrush", "蒲黄")));
 		testProduit.setDescription("Pollen that can be used as a diuretic or to aid clotting ; it is collected in summer, directly from the flowers after being dried. Light smell or taste.");
 		testProduit.setType(ProductType.PLANT);		
+				
+		Product testProduitB = new Product();
+		testProduitB.setName("Aloeswood");
+		testProduitB.setOtherNames(new ArrayList<>(Arrays.asList("Wood of Gods", "Agarwood", "eaglewood", "oudh")));
+		testProduitB.setDescription("A quite luxury wood often used in incenses");
+		testProduitB.setType(ProductType.WOOD);	
 
 		Stock testStock = new Stock();
 		testStock.setQuantity(40);
@@ -44,13 +67,12 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		
 		//Comme c'est Product qui a l'id du Stock, faut save stock avant sinon explosion
 		stockRepository.save(testStock);
-		
+			
 		testProduit.setStock(testStock);
-	    testStock.setStockedProduct(testProduit);
-		
+		testStock.setStockedProduct(testProduit);
+				
 		productRepository.save(testProduit);
-		
-		
+		productRepository.save(testProduitB);
 	}
 	
 }

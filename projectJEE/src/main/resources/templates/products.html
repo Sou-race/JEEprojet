@@ -8,26 +8,9 @@
 <body>
 <main class="container">
 
-	<h1>All our marvellous product :</h1>
+	<h1>All our marvelous product :</h1>	
 	
-	<!--
-	<ul>
-		<li th:each="product : ${products}">
-			<span th:text="${product.name}">(NAME) | </span> 
-			
-			<span th:text="${product.otherNames}">(OTHER_NAMES) | </span> 
-			<span th:text="${product.description}">(DESCRIPT)</span>
-			 
-		</li> 
-	</ul>
-	 -->
-	
-	
-	<table>
-		<thead>
-			
-		</thead>
-		
+	<table>		
 		<tr th:each="product : ${products}">
 			<td th:text="${product.id}">XXX</td>
 			<td th:text="${product.name}">(NAME)</td>

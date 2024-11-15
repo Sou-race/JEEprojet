@@ -5,13 +5,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.OrderBy;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
 
 @Entity
 public class Stock {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
-
+	
+	/*TODO : transformer le shelfNumber en ID/clé primaire ?
+	 * ça sera + propre comme ça, et il sera unique
+	 * (mais faudra le laisser modifiable dans ses limites comme
+	 * on peeeut echanger des places d'elements dans une étagère)
+	 */	
+	@Min(value = 0, message = "This shelf number does not exist")
+	@Max(value = 150, message = "This shelf number does not exist. (We need to buy more furnitures !!)")
+	@OrderBy("shelfNumber ASC")
 	private int shelfNumber;
 	
 	@OneToOne(mappedBy = "stock")
@@ -21,8 +32,11 @@ public class Stock {
 	
 	private String unit = "g"; //en grammes par défaut
 	
+	private Float pricePerUnit;
 	
 	
+	
+
 	public int getShelfNumber() {
 		return shelfNumber;
 	}
@@ -62,4 +76,11 @@ public class Stock {
 		return id;
 	}
 	
+	public Float getPricePerUnit() {
+		return pricePerUnit;
+	}
+
+	public void setPricePerUnit(Float pricePerUnit) {
+		this.pricePerUnit = pricePerUnit;
+	}
 }

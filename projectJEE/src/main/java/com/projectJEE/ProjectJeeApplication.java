@@ -21,14 +21,15 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	
 	
 	@Autowired 
-	ProductRepository productRepository;
-	
+	ProductRepository productRepository;	
 	@Autowired 
 	StockRepository stockRepository;
+	@Autowired 
+	EffectAndPreparationRepository effectAndPreparationRepository;
+	
 	
 	@Override
-	public void run(ApplicationArguments args) throws Exception{	
-		
+	public void run(ApplicationArguments args) throws Exception{		
 		//TestStart_AddingThreeObjects();		
 	}
 	
@@ -56,8 +57,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		productRepository.save(testProduitB);		
 			
 		testProduit.setStock(testStock);
-		testStock.setStockedProduct(testProduit);
-				
+		testStock.setStockedProduct(testProduit);				
 		stockRepository.save(testStock);
 		
 		Stock testStockA = new Stock();
@@ -71,6 +71,15 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		
 		stockRepository.save(testStockA);
 		stockRepository.save(testStockB);
+		
+		EffectAndPreparation e = new EffectAndPreparation();
+		e.setEffectDescription("Help regulating the blood ; Stop external bleeding");
+		e.setPreparationDescription("Unknown. Burn it, maybe.");
+		e.setOnsetOfActionInHour(2);
+		e.setDosage(new Pair(40,"g"));
+		e.setUsedProduct(testProduit);
+		effectAndPreparationRepository.save(e);
+		
 	}
 	
 }

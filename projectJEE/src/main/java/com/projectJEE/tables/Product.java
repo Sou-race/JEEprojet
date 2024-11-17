@@ -3,9 +3,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -26,7 +28,11 @@ public class Product {
 	private String picLink;
 	
 	@OneToOne(mappedBy = "stockedProduct")
-	private Stock stock;
+	private Stock stock;	
+	
+	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)
+	private List<EffectAndPreparation> passports = new ArrayList<>();
+	
 
 	
 

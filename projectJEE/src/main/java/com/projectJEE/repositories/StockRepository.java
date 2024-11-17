@@ -14,8 +14,7 @@ import jakarta.persistence.OrderBy;
 @Repository
 public interface StockRepository extends JpaRepository<Stock, Long>{
 	@OrderBy("shelfNumber")
-	Optional<Stock> findByShelfNumber(int shelfNumber);
-	
+	Optional<Stock> findByShelfNumber(int shelfNumber);	
 	Optional<Stock> findByStockedProduct(Product stockedProduct);
 	
 	List<Stock> findAllByOrderByShelfNumber();

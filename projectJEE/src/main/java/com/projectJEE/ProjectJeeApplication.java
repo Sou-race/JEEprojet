@@ -26,6 +26,8 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	StockRepository stockRepository;
 	@Autowired 
 	EffectAndPreparationRepository effectAndPreparationRepository;
+	@Autowired 
+	CategoryRepository categoryRepository;
 	
 	
 	@Override
@@ -72,6 +74,11 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		stockRepository.save(testStockA);
 		stockRepository.save(testStockB);
 		
+		Category c = new Category();
+		c.setTitle("Antiemetic");
+		c.setDefinition("A drug against vomiting and nausea, usually to treat motion sickness");
+		categoryRepository.save(c);		
+		
 		EffectAndPreparation e = new EffectAndPreparation();
 		e.setEffectDescription("Help regulating the blood ; Stop external bleeding");
 		e.setPreparationDescription("Unknown. Burn it, maybe.");
@@ -80,6 +87,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		e.setUsedProduct(testProduit);
 		effectAndPreparationRepository.save(e);
 		
-	}
+		
+		}
 	
 }

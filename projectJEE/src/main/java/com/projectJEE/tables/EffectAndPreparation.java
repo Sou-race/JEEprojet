@@ -34,6 +34,12 @@ public class EffectAndPreparation {
 	
 	@ManyToOne
 	private Product usedProduct;
+	
+	@ManyToOne
+	private Category categoryOfThisEffect;
+
+	
+	
 
 	public String getEffectDescription() {
 		return effectDescription;
@@ -78,5 +84,13 @@ public class EffectAndPreparation {
 	public Long getId() {
 		return id;
 	}
+	
 
+	public Category getCategoryOfThisEffect() {
+		return categoryOfThisEffect;
+	}
+
+	public void setCategoryOfThisEffect(Category categoryOfThisEffect) {
+		this.categoryOfThisEffect = categoryOfThisEffect;
+	}
 }

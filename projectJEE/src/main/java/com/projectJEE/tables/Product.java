@@ -31,10 +31,11 @@ public class Product {
 	private Stock stock;	
 	
 	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)
-	private List<EffectAndPreparation> passports = new ArrayList<>();
+	private List<EffectAndPreparation> possibleEffectsAnfPreparations = new ArrayList<>();
 	
 
 	
+
 
 	public Long getId() {
 		return id;
@@ -95,6 +96,14 @@ public class Product {
 		if (stock != null && stock.getStockedProduct() != this) {
 	        stock.setStockedProduct(this);
 	    }
-	}	
+	}
+	
+	public List<EffectAndPreparation> getPossibleEffectsAnfPreparations() {
+		return possibleEffectsAnfPreparations;
+	}
+
+	public void setPossibleEffectsAnfPreparations(List<EffectAndPreparation> possibleEffectsAnfPreparations) {
+		this.possibleEffectsAnfPreparations = possibleEffectsAnfPreparations;
+	}
 	
 }

@@ -32,7 +32,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{		
-		//TestStart_AddingThreeObjects();		
+		TestStart_AddingThreeObjects();		
 	}
 	
 	public void TestStart_AddingThreeObjects() {
@@ -50,8 +50,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		testProduitB.setType(ProductType.WOOD);	
 
 		Stock testStock = new Stock();
-		testStock.setQuantity(40);
-		testStock.setUnit("g");
+		testStock.setDosage(new Dosage(40,"g"));
 		testStock.setShelfNumber(3);
 		
 		//Comme c'est Stock qui a l'id du Produit, faut save produit avant sinon explosion
@@ -63,12 +62,10 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		stockRepository.save(testStock);
 		
 		Stock testStockA = new Stock();
-		testStockA.setQuantity(80);
-		testStockA.setUnit("piece(s)");
+		testStockA.setDosage(new Dosage(80,"piece"));
 		testStockA.setShelfNumber(7);
 		Stock testStockB = new Stock();
-		testStockB.setQuantity(0);
-		testStockB.setUnit("Kg");
+		testStockB.setDosage(new Dosage(0.3f,"Kg"));
 		testStockB.setShelfNumber(2);		
 		
 		stockRepository.save(testStockA);
@@ -78,12 +75,16 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		c.setTitle("Antiemetic");
 		c.setDefinition("A drug against vomiting and nausea, usually to treat motion sickness");
 		categoryRepository.save(c);		
+		Category c1 = new Category();
+		c1.setTitle("Diuretic ");
+		c1.setDefinition("A drug that help remove salt and water of the body through urine");
+		categoryRepository.save(c1);	
 		
 		EffectAndPreparation e = new EffectAndPreparation();
 		e.setEffectDescription("Help regulating the blood ; Stop external bleeding");
 		e.setPreparationDescription("Unknown. Burn it, maybe.");
 		e.setOnsetOfActionInHour(2);
-		e.setDosage(new Pair(40,"g"));
+		e.setDosage(new Dosage(40,"g"));
 		e.setUsedProduct(testProduit);
 		effectAndPreparationRepository.save(e);
 		

@@ -1,5 +1,11 @@
 package com.projectJEE.tables;
 
+import com.projectJEE.Dosage;
+
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,9 +29,12 @@ public class Stock {
 	@OneToOne
 	private Product stockedProduct;
 	
-	private int quantity;
-	
-	private String unit = "g"; //en grammes par défaut
+	@Embedded
+	@AttributeOverrides({
+		  @AttributeOverride( name = "quantity", column = @Column(name = "dosage_quantity")),
+		  @AttributeOverride( name = "unit", column = @Column(name = "dosage_unit"))
+		})
+	private Dosage dosage = new Dosage(0.0f, "g");	
 	
 	private Float pricePerUnit;
 	
@@ -49,22 +58,14 @@ public class Stock {
 		if (stockedProduct != null && stockedProduct.getStock() != this) {
 			stockedProduct.setStock(this);
 	    }
+	}	
+
+	public Dosage getDosage() {
+		return dosage;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public String getUnit() {
-		return unit;
-	}
-
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setDosage(Dosage dosage) {
+		this.dosage = dosage;
 	}
 
 	public Long getId() {

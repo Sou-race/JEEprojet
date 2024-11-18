@@ -1,6 +1,6 @@
 package com.projectJEE.tables;
 
-import com.projectJEE.Pair;
+import com.projectJEE.Dosage;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
@@ -25,10 +25,10 @@ public class EffectAndPreparation {
 	
 	@Embedded
 	@AttributeOverrides({
-		  @AttributeOverride( name = "key", column = @Column(name = "dosage_quantity")),
-		  @AttributeOverride( name = "value", column = @Column(name = "dosage_unit"))
+		  @AttributeOverride( name = "quantity", column = @Column(name = "dosage_quantity")),
+		  @AttributeOverride( name = "unit", column = @Column(name = "dosage_unit"))
 		})
-	private Pair dosage = new Pair(0.0f, "g");	
+	private Dosage dosage = new Dosage(0.0f, "g");	
 	
 	private float onsetOfActionInHour;	
 	
@@ -57,11 +57,11 @@ public class EffectAndPreparation {
 		this.preparationDescription = preparationDescription;
 	}
 
-	public Pair getDosage() {
+	public Dosage getDosage() {
 		return dosage;
 	}
 	
-	public void setDosage(Pair dosage) {
+	public void setDosage(Dosage dosage) {
 		this.dosage = dosage;
 	}
 

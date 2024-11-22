@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+#aProductRow{
+	transition: 0.5s ease;
+}
+#aProductRow:hover{
+	cursor: pointer;
+	transition: 0.3s ease;
+	filter: brightness(1.1) saturate(1.5);
+}
+
+
+
+
+#modalBackground {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 99; 
+}
+
+#productModal {
+    display: none; 
+    position: fixed;
+    background: #13171f;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #007a50 ;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    z-index: 100; 
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Bouton de fermeture */
+#productModal .close-button {
+	width: 25px; 
+	height: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: 0.5s ease;
+}
+#productModal .close-button:hover {
+	transition: 0.3s ease;
+	filter: brightness(2.5) saturate(0.5);
+}
+
+/*Cropped img */
+#modalImage{
+	border: 1px solid #007a50 ;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 300px; 
+	height: 250px;
+	object-fit: cover;
+}

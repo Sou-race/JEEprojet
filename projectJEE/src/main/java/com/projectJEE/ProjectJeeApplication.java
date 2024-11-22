@@ -34,7 +34,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{		
-		//TestStart_AddingThreeObjects();		
+		TestStart_AddingThreeObjects();		
 	}
 	
 	public void TestStart_AddingThreeObjects() {
@@ -56,17 +56,18 @@ public class ProjectJeeApplication implements ApplicationRunner{
 		testStock.setShelfNumber(3);
 		
 		Place testPlace1 = new Place();
-		testPlace1.setName("Ouais");
+		testPlace1.setName("River named A");
 		testPlace1.setLatitude(4);
 		testPlace1.setLongitude(4);
 
 		Place testPlace2 = new Place();
-		testPlace2.setName("Allez");
+		testPlace2.setName("Woods named something something");
 		testPlace2.setLatitude(8);
-		testPlace2.setLongitude(8);
+		testPlace2.setLongitude(10);
 		
 		placeRepository.save(testPlace1);
 		placeRepository.save(testPlace2);
+		
 		//Comme c'est Stock qui a l'id du Produit, faut save produit avant sinon explosion
 		productRepository.save(testProduit);
 		productRepository.save(testProduitB);		

@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends JpaRepository<Product, Long>{
 	
 	Optional<Product> findByName(String name);
+	Optional<Product> findById(Long id);
 }

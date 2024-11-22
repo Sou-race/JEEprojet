@@ -3136,7 +3136,24 @@
 											"top": 502,
 											"width": 170.9169921875,
 											"height": 13,
-											"text": "+shelfNumber: int {id, unique}",
+											"text": "+id: int {id, unique}",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGTLzRu80pXWHc=",
+											"_parent": {
+												"$ref": "AAAAAAGTCFrAvDoyBo4="
+											},
+											"model": {
+												"$ref": "AAAAAAGTLzRu4EpIaLQ="
+											},
+											"font": "Arial;13;0",
+											"left": 77,
+											"top": 517,
+											"width": 170.9169921875,
+											"height": 13,
+											"text": "+shelfNumber: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3150,7 +3167,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 77,
-											"top": 517,
+											"top": 532,
 											"width": 170.9169921875,
 											"height": 13,
 											"text": "+quantity: int",
@@ -3167,7 +3184,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 77,
-											"top": 532,
+											"top": 547,
 											"width": 170.9169921875,
 											"height": 13,
 											"text": "+unit: String",
@@ -3184,7 +3201,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 77,
-											"top": 547,
+											"top": 562,
 											"width": 170.9169921875,
 											"height": 13,
 											"text": "+pricePerUnit: float",
@@ -3195,7 +3212,7 @@
 									"left": 72,
 									"top": 497,
 									"width": 180.9169921875,
-									"height": 68
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -3208,7 +3225,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 72,
-									"top": 565,
+									"top": 580,
 									"width": 180.9169921875,
 									"height": 10
 								},
@@ -3552,8 +3569,8 @@
 							"left": 72,
 							"top": 632,
 							"width": 177,
-							"height": 51,
-							"text": "0<= shelfNumber <= max\n(max à determiner)"
+							"height": 81,
+							"text": "0<= shelfNumber <= max\n(max à determiner)\nIl peut avoir plusieurs product sur la même étagère"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -4097,10 +4114,19 @@
 							"_parent": {
 								"$ref": "AAAAAAGTCFrAuToq3Ok="
 							},
-							"name": "shelfNumber",
+							"name": "id",
 							"type": "int",
 							"isUnique": true,
 							"isID": true
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGTLzRu4EpIaLQ=",
+							"_parent": {
+								"$ref": "AAAAAAGTCFrAuToq3Ok="
+							},
+							"name": "shelfNumber",
+							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>ApoTakeCare - Effects and Preparations Page</title>
+	<link rel="stylesheet" href="/pico.jade.min.css">
+</head>
+<body>
+<main class="container">
+
+	<h1>All the effects and their detailed preparations :</h1>	
+	
+	<table>		
+		<thead>
+	        <tr>
+	            <th>ID</th>
+	            <th>Category</th>
+	            <th>Product Used</th>
+	            <th>Effect(s) Description</th>
+	            <th>Dosage</th>
+	            <th>Preparation Description</th>
+	            <th>On Set Of Action (in hours)</th>
+	        </tr>
+    	</thead>
+    	<tbody>    	
+	    	<tr th:each="effectAndPreparation : ${effectsAndPreparations}">
+				<td th:text="${effectAndPreparation.id}">XXX</td>
+				<td th:text="${effectAndPreparation.categoryOfThisEffect != null ? effectAndPreparation.categoryOfThisEffect.title : ''}">(CATEGORY)</td>	
+				<td th:text="${effectAndPreparation.usedProduct != null ? effectAndPreparation.usedProduct.name : ''}">(PRODUCT_USED)</td>
+				<td th:text="${effectAndPreparation.effectDescription}">(EFFECT_DESCRIPT)</td>
+				<td th:text="${effectAndPreparation.dosage != null ? effectAndPreparation.dosage.key + ' ' + effectAndPreparation.dosage.value : ''}">(DOSAGE)</td>
+				<td th:text="${effectAndPreparation.preparationDescription}">(PREP_DESCRIPT)</td>
+				<td th:text="${effectAndPreparation.onsetOfActionInHour}">(ACTION_ONSET)</td>						
+			</tr>
+    	</tbody>		
+	</table>
+	
+</main>
+</body>
+</html>

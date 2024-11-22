@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>ApoTakeCare - Products Page</title>
+	<link rel="stylesheet" href="/pico.jade.min.css">
+</head>
+<body>
+<main class="container">
+
+	<h1>All the places:</h1>	
+	
+	<table>		
+		<thead>
+	        <tr>
+	            <th>ID</th>
+	            <th>Place Name</th>
+	            <th>Longitude</th>
+	            <th>Latitude</th>
+	        </tr>
+    	</thead>
+    	<tbody>
+	    	<tr th:each="place : ${places}">
+				<td th:text="${place.id}">XXX</td>
+				<td th:text="${place.name}">(NAME)</td>
+				<td th:text="${place.longitude}">(DESCRIPT)</td>
+				<td th:text="${place.latitude}">(DESCRIPT)</td>
+			</tr>
+    	</tbody>		
+	</table>
+	
+</main>
+</body>
+</html>

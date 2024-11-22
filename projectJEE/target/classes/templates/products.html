@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>ApoTakeCare - Products Page</title>
+	<link rel="stylesheet" href="/pico.jade.min.css">
+</head>
+<body>
+<main class="container">
+
+	<h1>All our marvelous product :</h1>	
+	
+	<table>		
+		<thead>
+	        <tr>
+	            <th>ID</th>
+	            <th>Product Name</th>
+	            <th>Other Name(s)</th>
+	            <th>Description</th>
+	            <th>Shelf Number</th>
+	        </tr>
+    	</thead>
+    	<tbody>
+	    	<tr th:each="product : ${products}">
+				<td th:text="${product.id}">XXX</td>
+				<td th:text="${product.name}">(NAME)</td>
+				<td>
+					<ul>
+						<li th:each="item : ${product.otherNames}" th:text="${item}">(OTHER NAMES)</li>
+					</ul>
+				</td>
+				<td th:text="${product.description}">(DESCRIPT)</td>
+				<td th:text="${product.stock != null ? product.stock.shelfNumber : ''}">(ShelfNumber)</td>
+			</tr>
+    	</tbody>		
+	</table>
+	
+</main>
+</body>
+</html>

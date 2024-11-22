@@ -1,5 +1,6 @@
 package com.projectJEE.tables;
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
 
 import jakarta.persistence.Entity;
@@ -7,6 +8,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -32,6 +34,9 @@ public class Product {
 	
 	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)
 	private List<EffectAndPreparation> possibleEffectsAnfPreparations = new ArrayList<>();
+	
+	@ManyToMany(mappedBy = "dispoProduct")
+	private Set<Place> dispoInPlace;
 	
 
 	

@@ -28,7 +28,7 @@
 				<td th:text="${effectAndPreparation.categoryOfThisEffect != null ? effectAndPreparation.categoryOfThisEffect.title : ''}">(CATEGORY)</td>	
 				<td th:text="${effectAndPreparation.usedProduct != null ? effectAndPreparation.usedProduct.name : ''}">(PRODUCT_USED)</td>
 				<td th:text="${effectAndPreparation.effectDescription}">(EFFECT_DESCRIPT)</td>
-				<td th:text="${effectAndPreparation.dosage != null ? effectAndPreparation.dosage.key + ' ' + effectAndPreparation.dosage.value : ''}">(DOSAGE)</td>
+				<td th:text="${effectAndPreparation.dosage != null ? effectAndPreparation.dosage.quantity + ' ' + effectAndPreparation.dosage.unit : ''}">(DOSAGE)</td>
 				<td th:text="${effectAndPreparation.preparationDescription}">(PREP_DESCRIPT)</td>
 				<td th:text="${effectAndPreparation.onsetOfActionInHour}">(ACTION_ONSET)</td>						
 			</tr>

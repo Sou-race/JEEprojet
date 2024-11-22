@@ -32,7 +32,7 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception{		
-		TestStart_AddingThreeObjects();		
+		//TestStart_AddingThreeObjects();		
 	}
 	
 	public void TestStart_AddingThreeObjects() {

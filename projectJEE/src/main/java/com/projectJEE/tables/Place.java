@@ -29,7 +29,7 @@ public class Place {
 
 	@ManyToMany
 	@JoinTable(
-			name="place_produit",
+			name="place_product",
 			joinColumns = @JoinColumn(name = "place_id"),
 			inverseJoinColumns = @JoinColumn(name = "product_id")
 		)

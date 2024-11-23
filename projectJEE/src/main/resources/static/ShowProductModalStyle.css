@@ -39,6 +39,15 @@
     text-align: center;
 }
 
+/* Icon Product Type */
+#ProductTypeIcon{
+	width: 45px; 
+	height: 45px;
+	position: absolute;
+	top: 20px;
+    left: 20px;
+}
+
 /* Bouton de fermeture */
 #productModal .close-button {
 	width: 25px; 

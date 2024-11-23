@@ -36,6 +36,16 @@ public class Product {
 
 	
 
+	public Product() {}
+	public Product(String name, List<String> otherNames, ProductType type, String description, String picLink) {
+		super();
+		this.name = name;
+		this.otherNames = otherNames;
+		this.type = type;
+		this.description = description;
+		this.picLink = picLink;
+	}
+	
 
 	public Long getId() {
 		return id;

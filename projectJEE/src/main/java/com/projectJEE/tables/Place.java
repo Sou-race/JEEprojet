@@ -35,7 +35,14 @@ public class Place {
 		)
 	private Set<Product> dispoProduct;
 	
-	
+	public Place() {}
+	public Place(String name, int latitude, int longitude) {
+		super();
+		this.name = name;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+
 	public Set<Product> getDispoProduct() {
 		return dispoProduct;
 	}

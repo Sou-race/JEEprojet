@@ -38,8 +38,14 @@ public class Stock {
 	
 	private Float pricePerUnit;
 	
-	
-	
+	public Stock() {}
+	public Stock(
+			@Min(value = 0, message = "This shelf number does not exist") @Max(value = 150, message = "This shelf number does not exist. (We need to buy more furnitures !!)") int shelfNumber,
+			Dosage dosage, Float pricePerUnit) {
+		this.shelfNumber = shelfNumber;
+		this.dosage = dosage;
+		this.pricePerUnit = pricePerUnit;
+	}
 
 	public int getShelfNumber() {
 		return shelfNumber;

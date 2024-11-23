@@ -26,7 +26,13 @@ public class Category {
 
 	
 	
-	
+	public Category() {}
+	public Category(String title, String definition) {
+		super();
+		this.title = title;
+		this.definition = definition;
+	}
+
 	public String getTitle() {
 		return title;
 	}

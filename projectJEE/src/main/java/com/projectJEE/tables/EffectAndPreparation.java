@@ -40,6 +40,16 @@ public class EffectAndPreparation {
 
 	
 	
+	public EffectAndPreparation() {}
+	public EffectAndPreparation(String effectDescription, String preparationDescription, Dosage dosage,
+			float onsetOfActionInHour, Product usedProduct) {
+		super();
+		this.effectDescription = effectDescription;
+		this.preparationDescription = preparationDescription;
+		this.dosage = dosage;
+		this.onsetOfActionInHour = onsetOfActionInHour;
+		this.usedProduct = usedProduct;
+	}
 
 	public String getEffectDescription() {
 		return effectDescription;

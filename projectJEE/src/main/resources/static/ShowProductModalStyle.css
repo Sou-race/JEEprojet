@@ -35,7 +35,9 @@
     border: 1px solid #007a50 ;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
     z-index: 100; 
-    max-width: 500px;
+    max-height: 80vh;
+    max-width: 800px;
+    overflow-y: auto;
     text-align: center;
 }
 

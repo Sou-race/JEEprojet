@@ -25,7 +25,8 @@ public class InitializeDatabase {
 									  PlaceRepository placeRepository,
 									  CategoryRepository categoryRepository,
 									  EffectAndPreparationRepository effectAndPreparationRepository){
-	    return args -> {
+		
+		return args -> {
 	    	// PRODUCTS :
 	    	if ( (productRepository.count()+stockRepository.count()+placeRepository.count()+categoryRepository.count()+effectAndPreparationRepository.count()) == 0) {
 	    		Product pA = new Product("Cattails (pollen)",
@@ -46,9 +47,14 @@ public class InitializeDatabase {
 				Product pD = new Product("Ambergris ",
 						new ArrayList<>(Arrays.asList("Dragon’s Saliva Incense", "Ambergrease", "Grey amber")),
 						ProductType.ANIMAL_PART,
-						"Its name also means “dragon’s saliva incense” as it is said to be made from a dragon’s drool. This waxy substance is used in perfume and is expensive. Is effective to treat the heart and many other things.",
-						"");
-				productRepository.saveAll(List.of(pA,pB,pC,pD));
+						"Its name also means “dragon’s saliva incense” as it is said to be made from a dragon’s drool. This waxy substance is used in perfume and is particulary expensive. Is effective to treat the heart and many other things.",
+						"/img/productPics/Ambergris.PNG");
+				Product pE = new Product("Wolfsbane ",
+						new ArrayList<>(Arrays.asList("Monkshood", "Aconite", "Devil's helmet", "Blue Rocket")),
+						ProductType.PLANT,
+						"Easily mistaken with the Mugwort (safe one), Wolfsbane can be revieled to be quite poisonous according to the specific specie. They can be used to coat arrows for hunting or warfare.",
+						"/img/productPics/Wolfsbane.PNG");
+				productRepository.saveAll(List.of(pA,pB,pC,pD,pE));
 						
 				// STOCKS :	
 				Stock sA = new Stock(3, new Dosage(40,"g"), 0.40f );

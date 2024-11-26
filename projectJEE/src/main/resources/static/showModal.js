@@ -3,21 +3,21 @@
  */
 
  function showModalOneProduct(row) {	
-	console.log("Id récup : " + row.getAttribute("data-id" ) );
-	console.log("Name récup : " + row.getAttribute("data-name") );
-	console.log("Autre noms : " + row.getAttribute("data-otherNames") );
-	console.log("Descript récup : " + row.getAttribute("data-description") );
-	console.log("Type : " + row.getAttribute("data-type") );	
-	console.log("Lien img : " + row.getAttribute("data-picLink") );	
-	console.log("Stock : " + row.getAttribute("data-stock") );
 	
-    /// Remplit:
+	/// Remplit (trouver comment le faire seulement sur le html avec thymeleaf):
     document.getElementById("modalId").textContent = row.getAttribute("data-id");
     document.getElementById("modalName").textContent = row.getAttribute("data-name");
     document.getElementById("modalOtherNames").textContent = row.getAttribute("data-otherNames").replace(/[\[\]]/g, "");
     document.getElementById("modalImage").src = row.getAttribute("data-picLink")
     document.getElementById("modalDescription").textContent = row.getAttribute("data-description");
-    document.getElementById("modalShelfNumber").textContent = "n° " + row.getAttribute("data-stock");
+    
+    if(document.getElementById("modalShelfNumber").textContent != null){
+		document.getElementById("modalShelfNumber").textContent = "n° " + row.getAttribute("data-stock");
+		
+	}else{
+		document.getElementById("modalShelfNumber").textContent = "Unavailable";
+	}
+    
     
     // Pour l'icone du type :
     const myImg = document.getElementById("ProductTypeIcon");
@@ -42,11 +42,11 @@
 			myImg.src = '/img/other.png'
 			myImg.title = 'Other Product'
 	}
-    
-
+    		
     // Afficher la div du modal + fond
-    document.getElementById("modalBackground").style.display = "block";
-    document.getElementById("productModal").style.display = "block";
+	document.getElementById("modalBackground").style.display = "block";
+	document.getElementById("productModal").style.display = "block";
+        
 }
 
 function closeModal() {

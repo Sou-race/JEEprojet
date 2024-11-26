@@ -1,12 +1,5 @@
 package com.projectJEE;
 
-import com.projectJEE.repositories.*;
-import com.projectJEE.tables.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +15,4 @@ public class ProjectJeeApplication implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception{				
 	}
-	
-	
-	
 }

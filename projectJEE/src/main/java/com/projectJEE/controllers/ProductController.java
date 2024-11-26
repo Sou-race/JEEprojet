@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectJEE.repositories.ProductRepository;
 import com.projectJEE.tables.Product;
@@ -21,12 +22,28 @@ public class ProductController {
 	@Autowired 
 	ProductRepository productRepository;
 	
+	@GetMapping("/products/{id}")
+	 public String showProductModal(@PathVariable Long id, Model model) {
+	     List<Product> products = productRepository.findAll();
+	     model.addAttribute("products", products);
+
+	     Product selectedProduct = productRepository.findById(id)
+	             .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+	     model.addAttribute("selectedProduct", selectedProduct);
+
+	     return "products";
+	 }
+	
 	@GetMapping("/products")
 	public String showProducts(Model model) {
 		List<Product> products = productRepository.findAll();
 		model.addAttribute("products", products);
 		return "products";
 	}
+	
+	
+	
+	
 	
 	 @PostMapping("/products")
 	 Product newProduct(@RequestBody Product newProduct) {
@@ -39,11 +56,13 @@ public class ProductController {
 		 productRepository.deleteById(id);
 	  }
 	 
+	 /*
+	 @GetMapping("/products/{id}")
+	 @ResponseBody
+	 public Product getProductById(@PathVariable Long id) {
+	     return productRepository.findById(id)
+	             .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+	 }
+	 */
 	 
-	/*
-	 @GetMapping("/{id}")
-	 public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-		 return productRepository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-	}
-	*/
 }

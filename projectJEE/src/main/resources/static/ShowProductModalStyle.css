@@ -12,8 +12,7 @@
 
 
 
-#modalBackground {
-    display: none; 
+.modalBackground {
     position: fixed;
     top: 0;
     left: 0;
@@ -23,8 +22,7 @@
     z-index: 99; 
 }
 
-#productModal {
-    display: none; 
+.productModal {
     position: fixed;
     background: #13171f;
     top: 50%;
@@ -41,8 +39,11 @@
     text-align: center;
 }
 
+
+
+
 /* Icon Product Type */
-#ProductTypeIcon{
+.ProductTypeIcon{
 	width: 45px; 
 	height: 45px;
 	position: absolute;
@@ -51,7 +52,7 @@
 }
 
 /* Bouton de fermeture */
-#productModal .close-button {
+.productModal .close-button {
 	width: 25px; 
 	height: 25px;
     cursor: pointer;
@@ -60,13 +61,13 @@
     right: 10px;
     transition: 0.5s ease;
 }
-#productModal .close-button:hover {
+.productModal .close-button:hover {
 	transition: 0.3s ease;
 	filter: brightness(2.5) saturate(0.5);
 }
 
 /*Cropped img */
-#modalImage{
+.modalImage{
 	border: 1px solid #007a50 ;
 	margin-top: 40px;
 	margin-bottom: 40px;

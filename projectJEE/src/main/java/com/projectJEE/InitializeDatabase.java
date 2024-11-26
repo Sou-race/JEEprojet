@@ -33,7 +33,7 @@ public class InitializeDatabase {
 						new ArrayList<>(Arrays.asList("Pu Huang", "Pollen Typhae", "Bulrush", "蒲黄")),
 						ProductType.PLANT,
 						"Pollen that can be used as a diuretic or to aid clotting ; it is collected in summer, directly from the flowers after being dried. Light smell or taste.",
-						"");
+						"/img/productPics/Cattails.PNG");
 				Product pB = new Product("Aloeswood",
 						new ArrayList<>(Arrays.asList("Wood of Gods", "Agarwood", "Eaglewood", "Oudh")),
 						ProductType.WOOD,
@@ -83,6 +83,7 @@ public class InitializeDatabase {
 																   new Dosage(40,"g"),
 																   4,
 																   pA);
+				eA.setCategoryOfThisEffect(cB);
 				effectAndPreparationRepository.save(eA);	    		
 	    	}
 	    };

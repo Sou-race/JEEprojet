@@ -1,12 +1,15 @@
 package com.projectJEE.tables;
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -33,7 +36,8 @@ public class Product {
 	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)
 	private List<EffectAndPreparation> possibleEffectsAnfPreparations = new ArrayList<>();
 	
-
+	@ManyToMany
+	private Set<Place> places;
 	
 
 	public Product() {}
@@ -44,6 +48,7 @@ public class Product {
 		this.type = type;
 		this.description = description;
 		this.picLink = picLink;
+		this.places = new HashSet<>();
 	}
 	
 

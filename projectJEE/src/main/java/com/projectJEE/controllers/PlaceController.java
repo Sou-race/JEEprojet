@@ -17,8 +17,8 @@ public class PlaceController {
 	PlaceRepository placeRepository;
 	
 	@GetMapping("/places")
-	public String showProducts(Model model) {
-		List<Place> places = placeRepository.findAll();
+	public String showPlacesById(Model model) {
+		List<Place> places = placeRepository.findAllByOrderByName();
 		model.addAttribute("places", places);
 		return "places";
 	}

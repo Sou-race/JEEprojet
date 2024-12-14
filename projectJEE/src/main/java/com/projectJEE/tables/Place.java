@@ -74,4 +74,8 @@ public class Place {
 	public void setLongitude(int longitude) {
 		this.longitude = longitude;
 	}
+	
+	public Long getId() {
+		return id;
+	}
 }

@@ -9,21 +9,42 @@
 </head>
 <body>
 <main class="container">
-
+	
+	<!-- Header : -->
+	<!--  
+	<div th:insert="header :: header"></div>
+	-->
+	
 	<h1>All our marvelous product :</h1>	
 	<h5>(Click on a row)</h5>
-	<button>Add a new Product</button>
+	<button>Add a new Product</button>	
+	 
 	
+	<!--  Show all Products :  -->
 	<table>		
 		<thead>
-	        <tr>
-	            <th>ID</th>
-	            <th>Product Name</th>
-	            <th>Other Name(s)</th>
-	            <th>Description</th>
-	            <th>Shelf Number</th>
-	        </tr>
-    	</thead>
+		    <tr>
+		        <th>
+		            <a th:href="@{/products(sort='id', order=${param.sort == null or param.sort[0] != 'id' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
+		                ID
+		            </a>
+		        </th>
+		        <th>
+		            <a th:href="@{/products(sort='name', order=${param.sort == null or param.sort[0] != 'name' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
+		                Product Name
+		            </a>
+		        </th>
+		        <th>Other Name(s)</th>
+		        <th>Description</th>
+		        <th>
+		            <a th:href="@{/products(sort='shelfNumber', order=${param.sort == null or param.sort[0] != 'shelfNumber' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
+		                Shelf Number
+		            </a>
+		        </th>
+		    </tr>
+		</thead>
+
+
     	<tbody>
 			<tr id="aProductRow" th:each="product : ${products}" 
 			    th:onclick="|window.location.href='/products/' + '${product.id}'|">
@@ -63,10 +84,7 @@
 	
 	        <h3>
 	            <span th:text="${selectedProduct.id}">Id</span> | <span th:text="${selectedProduct.name}">Product Name</span>
-	        </h3>
-	        
-		
-			<p th:text="${selectedProduct.type}">AAA</p>
+	        </h3>        
 			
 			
 	        <h5 th:text="${#strings.arrayJoin(selectedProduct.otherNames.toArray(), ', ')}"></h5>

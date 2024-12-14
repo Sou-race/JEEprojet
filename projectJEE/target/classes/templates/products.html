@@ -4,16 +4,15 @@
 	<meta charset="UTF-8">
 	<title>ApoTakeCare - Products Page</title>
 	<link rel="stylesheet" href="/pico.jade.min.css">
+	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/ShowProductModalStyle.css">
 	<script type="text/javascript" src="/showModal.js" defer></script>
 </head>
 <body>
 <main class="container">
 	
-	<!-- Header : -->
-	<!--  
-	<div th:insert="header :: header"></div>
-	-->
+	<!-- Header : -->	
+	<div th:replace="frag :: header"></div>
 	
 	<h1>All our marvelous product :</h1>	
 	<h5>(Click on a row)</h5>
@@ -24,23 +23,17 @@
 	<table>		
 		<thead>
 		    <tr>
-		        <th>
-		            <a th:href="@{/products(sort='id', order=${param.sort == null or param.sort[0] != 'id' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
-		                ID
-		            </a>
-		        </th>
-		        <th>
-		            <a th:href="@{/products(sort='name', order=${param.sort == null or param.sort[0] != 'name' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
-		                Product Name
-		            </a>
-		        </th>
+		        <th><a th:href="@{/products(sort='id', order=${param.sort == null or param.sort[0] != 'id' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
+		        	ID
+		            </a></th>
+		        <th><a th:href="@{/products(sort='name', order=${param.sort == null or param.sort[0] != 'name' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
+		        	Product Name
+		            </a></th>
 		        <th>Other Name(s)</th>
 		        <th>Description</th>
-		        <th>
-		            <a th:href="@{/products(sort='shelfNumber', order=${param.sort == null or param.sort[0] != 'shelfNumber' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
-		                Shelf Number
-		            </a>
-		        </th>
+		        <th><a th:href="@{/products(sort='shelfNumber', order=${param.sort == null or param.sort[0] != 'shelfNumber' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
+		        	Shelf Number
+		            </a></th>
 		    </tr>
 		</thead>
 
@@ -121,7 +114,8 @@
 	    </div>
 	</div>
 	
-	
+	<!-- FOOTER -->
+	<div th:replace="frag :: footer"></div>
 </main>
 </body>
 </html>

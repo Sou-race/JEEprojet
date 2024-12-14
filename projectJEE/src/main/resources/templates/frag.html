@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+  <body>
+  	
+  	<!-- HEADER FRAGMENT A INSERER -->
+  	<div th:fragment="header" class="header">
+	  	<nav>
+		  <ul>
+		    <li><a href="/">Home</a></li>
+		  </ul>
+		  <ul>
+		    <li><strong>- ApoTakeCare -</strong></li>
+		  </ul>
+		  <ul>
+		    <li><a href="/products">Products</a></li>
+		    <li><a href="/stocks">Stocks</a></li>
+		    <li><a href="/effectsAndPreparations">Effects & Preparations</a></li>
+		    <li><a href="/categories">Categories & Definitions</a></li>
+		    <li><a href="/places">Locations</a></li>
+		  </ul>
+		</nav>
+	</div>    
+	
+
+	  
+	  
+	<!-- FOOTER FRAGMENT A INSERER -->
+	<div th:fragment="footer">
+		<footer></footer>
+	</div>
+    
+  </body>
+</html>

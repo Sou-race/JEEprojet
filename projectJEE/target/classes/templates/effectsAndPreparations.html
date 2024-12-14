@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ApoTakeCare - Effects and Preparations Page</title>
+	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/pico.jade.min.css">
 </head>
 <body>
 <main class="container">
+	<!-- Header : -->	
+	<div th:replace="frag :: header"></div>
 
 	<h1>All the effects and their detailed preparations :</h1>	
 	
@@ -35,6 +38,8 @@
     	</tbody>		
 	</table>
 	
+	<!-- FOOTER -->
+	<div th:replace="frag :: footer"></div>
 </main>
 </body>
 </html>

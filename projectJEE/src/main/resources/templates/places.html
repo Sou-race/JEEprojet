@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ApoTakeCare - Places</title>
+	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/pico.jade.min.css">
 </head>
 <body>
 <main class="container">
+	<!-- Header : -->	
+	<div th:replace="frag :: header"></div>
 
 	<h1>All the places :</h1>	
 	
@@ -29,6 +32,8 @@
     	</tbody>		
 	</table>
 	
+	<!-- FOOTER -->
+	<div th:replace="frag :: footer"></div>
 </main>
 </body>
 </html>

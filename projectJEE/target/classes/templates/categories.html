@@ -3,11 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ApoTakeCare - Categories</title>
+	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/pico.jade.min.css">
 </head>
 <body>
 <main class="container">
-
+	<!-- Header : -->	
+	<div th:replace="frag :: header"></div>
+	
 	<h1>Some definitions :</h1>	
 	
 	<table>		
@@ -27,6 +30,8 @@
     	</tbody>		
 	</table>
 	
+	<!-- FOOTER -->
+	<div th:replace="frag :: footer"></div>
 </main>
 </body>
 </html>

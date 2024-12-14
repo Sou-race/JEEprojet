@@ -4,9 +4,16 @@
 	<meta charset="UTF-8">
 	<title>ApoTakeCare</title>
 	<link rel="stylesheet" href="/pico.jade.min.css">
+	<link rel="stylesheet" href="/general.css">
 </head>
 <body>
 <main class="container">
+
+	<!-- Header : -->	
+	<div th:replace="frag :: header"></div>
+
+	
+
 	<h1>Welcome to ApoTakeCare !</h1>
 	<h4>Where all your troubles are taken care of thanks to our marvelous products !</h4>
 	
@@ -24,12 +31,11 @@
 	
 	
 	<hr>
-	<h2>A h2 title</h2>
-	<h3>A h3 title</h3>
-	<h4>A h4 title</h4>
-	<h5>A h5 title</h5>
-	<h6>A h6 title</h6>
+
 	<hr>
+	
+	<!-- FOOTER -->
+	<div th:replace="frag :: footer"></div>
 	
 </main>
 </body>

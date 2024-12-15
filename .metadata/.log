@@ -1323,3 +1323,33 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY org.eclipse.lsp4e 1 0 2024-12-15 16:11:13.424
 !MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:17:31.385
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:17:33.625
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.5.4 from path "C:\Users\ruben\Downloads\eclipse-jee-2024-09-R-win32-x86_64\eclipse\plugins\org.eclipse.wildwebdeveloper_1.2.3.202408270415\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:17:33.645
+!MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:18:13.915
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:18:16.045
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.5.4 from path "C:\Users\ruben\Downloads\eclipse-jee-2024-09-R-win32-x86_64\eclipse\plugins\org.eclipse.wildwebdeveloper_1.2.3.202408270415\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:18:16.061
+!MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:29:15.969
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:29:18.254
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.5.4 from path "C:\Users\ruben\Downloads\eclipse-jee-2024-09-R-win32-x86_64\eclipse\plugins\org.eclipse.wildwebdeveloper_1.2.3.202408270415\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:29:18.257
+!MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 18:30:00.949
+!MESSAGE [Info]	ESLint server running in node v20.16.0

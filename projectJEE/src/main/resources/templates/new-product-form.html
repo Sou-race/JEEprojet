@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Product</title>
+    <link rel="stylesheet" href="/pico.css"> <!-- Optionnel pour le style -->
+</head>
+<body>
+
+<main class="container">
+
+    <h1>Add a New Product</h1>
+    <form th:action="@{/addNewProduct}" th:object="${product}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:value="*{name}" required>
+        </div>
+
+        <div>
+            <label for="otherNames">Other Names:</label>
+            <textarea id="otherNames" name="otherNames" th:value="*{otherNames}" rows="3" placeholder="Separate each name with a / "></textarea>
+        </div>
+
+        <div>
+            <select id="type" name="type" th:value="*{type}" required>
+            <option value="" disabled selected>Select a type</option>
+            <option value="PLANT" th:selected="*{type == 'PLANT'}">Plant</option>
+            <option value="WOOD" th:selected="*{type == 'WOOD'}">Wood</option>
+            <option value="FUNGUS" th:selected="*{type == 'FUNGUS'}">Fungus</option>
+            <option value="ANIMAL_PART" th:selected="*{type == 'ANIMAL_PART'}">Animal Part</option>
+            <option value="OTHER" th:selected="*{type == 'OTHER'}">Other</option>
+        </select>
+        </div>
+
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" th:value="*{description}" rows="5"></textarea>
+        </div>
+
+        <div>
+            <label for="picLink">Picture Link:</label>
+            <input type="url" id="picLink" name="picLink" th:value="*{picLink}" maxLength="255">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Product</button>
+    </form>
+
+    <a href="/products" class="btn btn-secondary">Back to Products</a>
+
+</main>
+</body>
+</html>

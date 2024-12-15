@@ -4,6 +4,7 @@ package com.projectJEE.controllers;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectJEE.repositories.ProductRepository;
 import com.projectJEE.tables.Product;
+import com.projectJEE.tables.ProductType;
+
 
 @Controller
 public class ProductController {
@@ -62,7 +65,13 @@ public class ProductController {
 	}
 	
 	
-	
+	@GetMapping("/addNewProduct")
+    public String showNewProductForm(Model model) {
+        model.addAttribute("product", new Product()); // Passe un objet vide de type Product
+        return "new-product-form"; // Vue HTML contenant le formulaire
+    }
+
+    
 	
 	
 	// Recherche :
@@ -94,6 +103,29 @@ public class ProductController {
 	 Product newProduct(@RequestBody Product newProduct) {
 	    return productRepository.save(newProduct);
 	  }
+	 
+	 
+	 @PostMapping("/addNewProduct")
+	 public String saveNewProduct(
+	         @RequestParam("name") String name,
+	         @RequestParam(value="otherNames", required= false) String otherNames,
+	         @RequestParam("type") ProductType type,
+	         @RequestParam("description") String description,
+	         @RequestParam(value = "picLink", required = false) String picLink) {
+		 
+		 List<String> otherNamesList = Arrays.asList(otherNames.split("/"));
+	     Product product = new Product();
+	     product.setName(name);
+	     product.setOtherNames(otherNamesList);
+	     product.setType(type);
+	     product.setDescription(description);
+	     product.setPicLink(picLink);
+
+
+	     productRepository.save(product);
+
+	     return "redirect:/products"; 
+	 }
 	 
 	 //TODO : ajouter des ProductNotFoundException ? au cas où
 	 @DeleteMapping("/products/{id}")

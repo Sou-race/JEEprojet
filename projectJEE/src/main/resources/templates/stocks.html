@@ -25,15 +25,29 @@
 	        </tr>
     	</thead>
     	<tbody>
-    		<tr th:each="stock : ${stocks}">
-				<td th:text="${stock.shelfNumber}">XXXX</td>
-				<td th:text="${stock.id}">XX</td>
-				<td th:text="${stock.stockedProduct != null ? stock.stockedProduct.name : ''}">(ProductName)</td>
-				<td th:text="${stock.stockedProduct != null ? stock.stockedProduct.id : ''}">(ProductID)</td>
-				<td th:text="${stock.dosage != null ? stock.dosage.quantity + ' ' + stock.dosage.unit : ''}">(QUANTITY)</td>
-				<td th:text="${stock.pricePerUnit}">(PRICE_PER_UNIT)</td>
-			</tr>
-    	</tbody>	
+    	<tr th:each="stock : ${stocks}" th:classappend="${stock.dosage.quantity < 5} ? 'low-stock'">
+        	<td th:text="${stock.shelfNumber}">XXXX</td>
+        	<td th:text="${stock.id}">XX</td>
+        	<td th:text="${stock.stockedProduct != null ? stock.stockedProduct.name : ''}">(ProductName)</td>
+        	<td th:text="${stock.stockedProduct != null ? stock.stockedProduct.id : ''}">(ProductID)</td>
+        	<td>
+            	<span th:text="${stock.dosage != null ? stock.dosage.quantity + ' ' + stock.dosage.unit : ''}">(QUANTITY)</span>
+            	<!-- Stock low alert -->
+            	<span th:if="${stock.dosage.quantity < 5}" style="color: red; font-weight: bold;"> - Low Stock!</span>
+        	</td>
+        	<td th:text="${stock.pricePerUnit}">(PRICE_PER_UNIT)</td>
+        	<td>
+            <form th:action="@{/stocks/add}" method="post">
+                <input type="hidden" name="id" th:value="${stock.id}" />
+                <button type="submit" class="secondary">Add</button>
+            </form>
+            <form th:action="@{/stocks/remove}" method="post">
+                <input type="hidden" name="id" th:value="${stock.id}" />
+                <button type="submit" class="contrast">Remove</button>
+            </form>
+        	</td>
+    	</tr>
+		</tbody>
 		
 	</table></div>
 	

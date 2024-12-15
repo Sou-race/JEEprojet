@@ -75,3 +75,11 @@ main {
 .suggestion:hover {
     background-color: #05995b;
 }
+
+
+.low-stock {
+    background-color: #ffdddd; 
+    color: #d9534f;
+    font-weight: bold;
+}
+

@@ -8,6 +8,18 @@ html, body {
     flex-direction: column;
 }
 
+.home-icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3 ease !important; 
+}
+
+.home-icon:hover {
+    content: url('/img/logo2.png');
+    transform: scale(1.1);
+    transition: all 0.3s ease !important;
+}
+
 main {
     flex: 1;
 }

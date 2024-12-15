@@ -82,8 +82,7 @@ public class ProductController {
     
 	
 	
-	// Recherche :
-	
+	// Recherche :	
 	@GetMapping("/api/products/search")
     @ResponseBody
     public List<Map<String,Object>> searchProducts(@RequestParam("query") String query) {
@@ -93,7 +92,7 @@ public class ProductController {
 	    products.addAll(byName);
 	    products.addAll(byDescription);
         return products.stream()
-        				.limit(10)
+        				.limit(5)
 		        		.map(product -> {
 		                    Map<String, Object> suggestion = new HashMap<>();
 		                    suggestion.put("name", product.getName());
@@ -105,8 +104,7 @@ public class ProductController {
 	}
 	
 	
-	/// Ajout :
-	
+	/// Ajout :	
 	 @PostMapping("/products")
 	 Product newProduct(@RequestBody Product newProduct) {
 	    return productRepository.save(newProduct);

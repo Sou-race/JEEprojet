@@ -64,7 +64,12 @@ public class InitializeDatabase {
 						ProductType.PLANT,
 						"Can be used in medicine. But a high dosage can cause hallucinations, spasms, etc. During the Victorian and Renaissance eras, actresses would use it as eye drops to dilate their pupils, making their eyes appear bigger.",
 						"/img/productPics/Belladonna.PNG");	
-				productRepository.saveAll(List.of(pA,pB,pC,pD,pE,pF,pG));
+				Product pH = new Product("Mugwort",
+						new ArrayList<>(Arrays.asList("Ngai Chou", "艾草", "yomogi")),
+						ProductType.PLANT,
+						"Mugwort has seen continuous use in many cultures throughout the world as a medicinal, spiritual, and culinary ingredient since at least the Iron Age. In contemporary culture mugwort is commonly found in foods and drinks.",
+						"/img/productPics/Mugwort.PNG");	
+				productRepository.saveAll(List.of(pA,pB,pC,pD,pE,pF,pG,pH));
 						
 				// STOCKS :	
 				Stock sA = new Stock(3, new Dosage(40,"g"), 0.40f );
@@ -92,8 +97,8 @@ public class InitializeDatabase {
 				Category cF = new Category("Moxibustion","A traditional Chinese medicine therapy which consists of burning dried mugwort (moxa) on particular points on the body. Is an alternative to acupuncture");
 				Category cG = new Category("Anaesthetic ","A substance that induces insensitivity to pain.");
 				Category cH = new Category("Hallucinogen","A drug that causes hallucinations");
-				
-				categoryRepository.saveAll(List.of(cA,cB,cC,cD,cE,cF,cG,cH));
+				Category cI = new Category("Abortifacient","A substance that induces abortion.");
+				categoryRepository.saveAll(List.of(cA,cB,cC,cD,cE,cF,cG,cH,cI));
 				 
 				
 				// EFFECTS AND PREP :
@@ -109,7 +114,19 @@ public class InitializeDatabase {
 										   2,
 										   pF);
 				eB.setCategoryOfThisEffect(cH);
-				effectAndPreparationRepository.saveAll(List.of(eA,eB));		
+				EffectAndPreparation eC = new EffectAndPreparation("It is believed to enhance healing with acupuncture. Its purpose is to strengthen the blood, stimulate the flow of Qi or energy, and maintain good health.",
+						   "The Mugwort leaves must be burnt close to the skin’s surface using a stick to apply heat.",
+						   new Dosage(7,"leaves"),
+						   0,
+						   pH);
+				eC.setCategoryOfThisEffect(cF);
+				EffectAndPreparation eD = new EffectAndPreparation("Used to prevent pregnancy. Must NOT use for people with a history of uterine inflammation or recent pelvic infections.",
+						   "10 to 14 days prior to menstruation, drink four to six times a day of tea infusion. It is important to not take Mugwort for longer than six days.",
+						   new Dosage(60,"tsp"),
+						   0,
+						   pH);
+				eD.setCategoryOfThisEffect(cI);
+				effectAndPreparationRepository.saveAll(List.of(eA,eB,eC,eD));		
 	    	}
 	    };
 	    }

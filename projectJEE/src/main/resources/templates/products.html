@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/cards.css">
 	<link rel="stylesheet" href="/ShowProductModalStyle.css">
-	<script type="text/javascript" src="/showModal.js" defer></script>
+	<script type="text/javascript" src="/showSpecificProduct.js" defer></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -49,10 +49,13 @@
     	<br>
     </div>
 	 
+	 
+	 
 	
 	<!--  Show all Products :  -->
 	<div class="grid">
-        <div th:each="product : ${products}" class="card" th:onclick="|window.location.href='/products/' + ${product.id}|">
+        <div th:each="product : ${products}" class="card"
+			 th:onclick="|addParamIdProduct(${product.id})|">
             <header>
                 <h4 th:text="${product.name}">(Product name)</h4>
                 <h6 th:text="${#strings.arrayJoin(product.otherNames.toArray(), ', ')}"></h6>          
@@ -66,12 +69,13 @@
 	
 	
 	
-	<!-- Show One Product : -->
-	
-	<div class="modalBackground" th:if="${selectedProduct}" onclick="window.location.href='/products'"></div>
+	<!-- Show One Product : -->	
+	<div class="modalBackground" th:if="${selectedProduct}" 		
+		  th:onclick="|removeParamIdProduct()|">
+    </div>
 
 	<div class="productModal" th:if="${selectedProduct}">
-	    <span class="close-button" onclick="window.location.href='/products'">
+	    <span class="close-button" th:onclick="|removeParamIdProduct()|">
 	        <img src="/img/closeIcon.png">
 	    </span>
 	
@@ -121,6 +125,8 @@
 	        </div>
 	    </div>
 	</div>
+	
+	
 	
 	<!-- FOOTER -->
 	<div th:replace="~{frag :: footer}"></div>

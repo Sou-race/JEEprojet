@@ -31,22 +31,9 @@ public class ProductController {
 	
 	
 	/// Affichage : 
-	
-	@GetMapping("/products/{id}")
-	 public String showProductModal(@PathVariable Long id, Model model) {
-	     List<Product> products = productRepository.findAll();
-	     model.addAttribute("products", products);
-
-	     Product selectedProduct = productRepository.findById(id)
-	             .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
-	     model.addAttribute("selectedProduct", selectedProduct);
-
-	     return "products";
-	 }
-	
-	
 	@GetMapping("/products")
 	public String showProducts(
+			@RequestParam(required = false) Long idProduct,
 	        @RequestParam(defaultValue = "id") String sort,
 	        @RequestParam(defaultValue = "asc") String order,
 	        Model model) {
@@ -61,11 +48,21 @@ public class ProductController {
 	    	// Autres tries normaux :
 	    	Sort.Direction direction = order.equals("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
 	        products = productRepository.findAll(Sort.by(direction, sort));
-	    }
-	    
+	    }	    
 	    model.addAttribute("products", products);
+	    
+	    // Si produit spécifique à afficher :
+	    if(idProduct!=null) {
+	    	Product selectedProduct = productRepository.findById(idProduct)
+		             .orElseThrow(() -> new RuntimeException("Product not found with id: " + idProduct));
+		     model.addAttribute("selectedProduct", selectedProduct);
+	    }
+	     
 	    return "products";
 	}
+	
+	
+	
 	
 	
 	// Recherche :

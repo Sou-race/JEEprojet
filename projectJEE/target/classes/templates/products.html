@@ -128,6 +128,30 @@
 	        </div>
 	    </div>
 	    <button class="delete-product-btn" th:attr="data-product-id=${selectedProduct.id}">Delete</button>
+		<button class="edit-product-btn" th:attr="data-product-id=${selectedProduct.id}" onclick="openEditForm()">Modifie</button>
+
+    <!-- Hidden edit form -->
+    <div id="editProductFormContainer" style="display:none;">
+        <form th:action="@{/products/{id}/edit(id=${selectedProduct.id})}" method="post">
+
+            <h3>Edit Product</h3>
+
+            <!-- Fields for editing -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:value="${selectedProduct.name}" required><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required th:text="${selectedProduct.description}"></textarea><br>
+
+            <label for="otherNames">Other Names:</label>
+            <textarea id="otherNames" name="otherNames" required th:text="${#strings.arrayJoin(selectedProduct.otherNames.toArray(), '/')}"></textarea><br>
+
+            <label for="picLink">Picture Link:</label>
+            <input type="text" id="picLink" name="picLink" th:value="${selectedProduct.picLink}"><br>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>	    
 	</div>
 	
 	
@@ -137,7 +161,12 @@
 <div th:replace="~{frag :: footer}"></div>
 	
 <script src="/deleteProduct.js"></script>
-	
+<script>
+    function openEditForm() { 
+
+        document.getElementById('editProductFormContainer').style.display = 'block';
+    }
+</script>
 </body>
 
 

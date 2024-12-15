@@ -8,6 +8,9 @@ html, body {
     flex-direction: column;
 }
 
+html {
+    --theme: dark !important;
+}
 .home-icon {
     width: 24px;
     height: 24px;

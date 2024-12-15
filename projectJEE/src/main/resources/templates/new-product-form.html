@@ -43,8 +43,32 @@
             <input type="url" id="picLink" name="picLink" th:value="*{picLink}" maxLength="255">
         </div>
 
-        <button type="submit" class="btn btn-primary">Save Product</button>
-    </form>
+	<h2>Stock Information</h2>
+    	<div>
+        	<label for="shelfNumber">Shelf Number:</label>
+        	<input type="number" id="shelfNumber" name="shelfNumber" min="0" max="15" required>
+    		
+    	</div>
+
+   		<div>
+        	<label for="quantity">Quantity:</label>
+       		<input type="number" id="quantity" name="quantity" step="0.01" required>
+    	</div>
+
+    	<div>
+        	<label for="unit">Unit:</label>
+        	<input type="text" id="unit" name="unit" maxlength="10" placeholder="e.g., g, kg" required>
+    	</div>
+
+    	<div>
+        	<label for="pricePerUnit">Price Per Unit:</label>
+        	<input type="number" id="pricePerUnit" name="pricePerUnit" step="0.01" required>
+    	</div>
+    	<div th:if="${error}">
+        	<p style="color: red;" th:text="${error}"></p>
+    	</div>
+        	<button type="submit" class="btn btn-primary">Save Product</button>
+    	</form>
 
     <a href="/products" class="btn btn-secondary">Back to Products</a>
 

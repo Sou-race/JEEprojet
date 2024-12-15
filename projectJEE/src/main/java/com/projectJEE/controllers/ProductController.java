@@ -115,26 +115,25 @@ public class ProductController {
 	 
 	 
 	 @PostMapping("/addNewProduct")
-	 public String saveNewProduct(
-	         @RequestParam("name") String name,
-	         @RequestParam(value="otherNames", required= false) String otherNames,
-	         @RequestParam("type") ProductType type,
-	         @RequestParam("description") String description,
-	         @RequestParam(value = "picLink", required = false) String picLink) {
-		 
-		 List<String> otherNamesList = Arrays.asList(otherNames.split("/"));
-	     Product product = new Product();
-	     product.setName(name);
-	     product.setOtherNames(otherNamesList);
-	     product.setType(type);
-	     product.setDescription(description);
-	     product.setPicLink(picLink);
-
-
-	     productRepository.save(product);
-
-	     return "redirect:/products"; 
-	 }
+	    public String saveNewProduct(
+	            @RequestParam String name,
+	            @RequestParam String otherNames,
+	            @RequestParam("type") ProductType type,
+	            @RequestParam String description,
+	            @RequestParam String picLink,
+	            @RequestParam int shelfNumber,
+	            @RequestParam float quantity,
+	            @RequestParam String unit,
+	            @RequestParam float pricePerUnit,
+	            Model model) {
+		 	List<String> otherNamesList = Arrays.asList(otherNames.split("/"));
+	            productService.saveProductWithStock(
+	                name, otherNamesList, type, description, picLink,
+	                shelfNumber, quantity, unit, pricePerUnit
+	            );
+	            return "redirect:/products";
+	        
+	    }
 	 
 	 //TODO : ajouter des ProductNotFoundException ? au cas où
 	 /*@DeleteMapping("/products/{id}")

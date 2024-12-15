@@ -12,10 +12,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.OrderBy;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Max;
 
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "shelfNumber")})
 public class Stock {
 	public static final int MAX_SHELF_NUMBER = 15;
 	
@@ -25,6 +28,7 @@ public class Stock {
 	@Min(value = 0, message = "This shelf number does not exist")
 	@Max(value = MAX_SHELF_NUMBER, message = "This shelf number does not exist. (We need to buy more furnitures !!)")
 	@OrderBy("shelfNumber ASC")
+	@Column(nullable = false)
 	private int shelfNumber;	
 	
 	@OneToOne

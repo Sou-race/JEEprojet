@@ -21,5 +21,7 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	
 	List<Stock> findAllByOrderByShelfNumber();
 	List<Stock> findAllByOrderByStockedProduct();
+	
+    boolean existsByShelfNumber(int shelfNumber);
 
 }

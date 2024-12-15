@@ -25,4 +25,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> findAllOrderByShelfNumberAsc();
 	@Query("SELECT p FROM Product p LEFT JOIN p.stock s ORDER BY s.shelfNumber DESC NULLS FIRST")
 	List<Product> findAllOrderByShelfNumberDesc();
+	List<Product> findAllByOrderByName();
 }

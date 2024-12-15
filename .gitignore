@@ -17,3 +17,7 @@ MANIFEST.MF
 
 .settings/
 bin/
+.metadata/.log
+.metadata/.plugins/org.eclipse.core.resources/.projects/projectJEE/.indexes/e4/b9/db/92/history.index
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+projectJEE/ourDB.trace.db

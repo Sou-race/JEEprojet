@@ -1,5 +1,6 @@
 package com.projectJEE.tables;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -41,6 +42,7 @@ public class Place {
 		this.name = name;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.dispoProduct = new HashSet<>();
 	}
 
 	public Set<Product> getDispoProduct() {

@@ -7,53 +7,113 @@
 	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/ShowProductModalStyle.css">
 	<script type="text/javascript" src="/showModal.js" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #2c2c2c;
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+    }
+
+    .card:hover {
+    	background-color: #5D5E5D;
+        transform: translateY(-8px) !important;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card header {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease !important;
+    }
+
+    .card p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease !important;
+    }
+    
+    .card ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .card ul li {
+        font-size: 0.9rem;
+    }
+
+    .card button {
+        background-color: #2a9d8f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.5s ease-out !important;
+    }
+
+    .card button:hover {
+    	transition: all 0.5s ease-out !important;
+        background-color: #21867a;
+        transform: translateY(-2px);
+    }
+
+    .footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #333;
+        color: #fff;
+        margin-top: 2rem;
+    }
+</style>
+
 </head>
+
 <body>
+
 <main class="container">
 	
 	<!-- Header : -->	
-	<div th:replace="frag :: header"></div>
+	<div th:replace="~{frag :: header}"></div>
 	
 	<h1>All our marvelous product :</h1>	
-	<h5>(Click on a row)</h5>
 	<button>Add a new Product</button>	
 	 
 	
 	<!--  Show all Products :  -->
-	<table>		
-		<thead>
-		    <tr>
-		        <th><a th:href="@{/products(sort='id', order=${param.sort == null or param.sort[0] != 'id' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
-		        	ID
-		            </a></th>
-		        <th><a th:href="@{/products(sort='name', order=${param.sort == null or param.sort[0] != 'name' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
-		        	Product Name
-		            </a></th>
-		        <th>Other Name(s)</th>
-		        <th>Description</th>
-		        <th><a th:href="@{/products(sort='shelfNumber', order=${param.sort == null or param.sort[0] != 'shelfNumber' or param.order[0] != 'asc' ? 'asc' : 'desc'})}">
-		        	Shelf Number
-		            </a></th>
-		    </tr>
-		</thead>
-
-
-    	<tbody>
-			<tr id="aProductRow" th:each="product : ${products}" 
-			    th:onclick="|window.location.href='/products/' + '${product.id}'|">
-			    <td th:text="${product.id}">(ID)</td>
-			    <td th:text="${product.name}">(NAME)</td>
-			    <td>
-			        <ul>
-			            <li th:each="item : ${product.otherNames}" th:text="${item}">(OTHER NAMES)</li>
-			        </ul>
-			    </td>
-			    <td th:text="${product.description}">(DESCRIPT)</td>
-			    <td th:text="${product.stock != null ? product.stock.shelfNumber : ''}">(ShelfNumber)</td>
-			</tr>
-
-    	</tbody>		
-	</table>
+<div class="grid">
+        <div th:each="product : ${products}" class="card">
+            <header>
+                <h2 th:text="${product.name}">Product name</h2>
+            </header>
+            <p th:text="${product.description}">Product description</p>
+            <ul>
+                <li th:each="item : ${product.otherNames}" th:text="${item}">(Other Names)</li>
+            </ul>
+            <footer>
+                <button class="secondary" th:onclick="|window.location.href='/products/' + ${product.id}|">
+                    <i class="fa fa-eye"></i> Details
+                </button>
+            </footer>
+        </div>
+    </div>
 	
 	
 	

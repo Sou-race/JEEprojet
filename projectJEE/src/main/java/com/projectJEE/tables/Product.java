@@ -37,7 +37,7 @@ public class Product {
 	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)
 	private List<EffectAndPreparation> possibleEffectsAnfPreparations = new ArrayList<>();
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "dispoProduct", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<Place> places;
 	
 

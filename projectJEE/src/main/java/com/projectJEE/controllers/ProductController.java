@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectJEE.repositories.ProductRepository;
 import com.projectJEE.repositories.StockRepository;
+import com.projectJEE.services.ProductService;
 import com.projectJEE.tables.Product;
 import com.projectJEE.tables.ProductType;
 
@@ -37,6 +38,9 @@ public class ProductController {
 	
 	@Autowired
 	StockRepository stockRepository;
+	
+	@Autowired
+	ProductService productService;
 	
 	/// Affichage : 
 	@GetMapping("/products")
@@ -140,17 +144,10 @@ public class ProductController {
 	 
 	 
 	 @DeleteMapping("/products/{id}")
-	    @ResponseBody
-	    public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
-	        Product product = productRepository.findById(id)
-	                .orElseThrow(() -> new RuntimeException("Product not found"));
-
-	        if (product.getStock() != null) {
-	            stockRepository.delete(product.getStock());
-	        }
-
-	        productRepository.delete(product);
-	        return ResponseEntity.ok("Product and its stock deleted successfully");
+	 @ResponseBody
+	 public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
+		 productService.deleteProductWithAssociations(id);
+	     return ResponseEntity.ok("Product, its stock, and its associations were deleted successfully");
 	    }
 	 
 }

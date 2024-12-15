@@ -104,13 +104,5 @@ public class ProductController {
 		 productRepository.deleteById(id);
 	  }
 	 
-	 /*
-	 @GetMapping("/products/{id}")
-	 @ResponseBody
-	 public Product getProductById(@PathVariable Long id) {
-	     return productRepository.findById(id)
-	             .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
-	 }
-	 */
 	 
 }

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ProjectJeeApplication implements ApplicationRunner{
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectJeeApplication.class, args);
 	}	

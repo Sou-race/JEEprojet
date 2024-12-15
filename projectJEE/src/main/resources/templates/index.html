@@ -10,7 +10,7 @@
 <main class="container">
 
 	<!-- HEADER -->	
-	<div th:replace="frag :: header"></div>
+	<div th:replace="~{frag :: header}"></div>
 
 	<h1>Welcome to ApoTakeCare !</h1>
 	<h4>Where all your troubles are taken care of thanks to our marvelous products !</h4>
@@ -23,19 +23,10 @@
 	</section>
 	
 	
-	<p>Check all our products here : <a href="/products">click !</a></p>
-	<p>Check our available stock : <a href="/stocks">click !</a></p>
-	<p>Check all effects our product can achieve and their detailed preparation : <a href="/effectsAndPreparations">click !</a></p>
-	<p>Check existing categories to learn their definitions : <a href="/categories">click !</a></p>
-	<p>Check some cataloged places : <a href="/places">click !</a></p>
 	
-	
-	<hr>
-
-	<hr>
 	
 	<!-- FOOTER -->
-	<div th:replace="frag :: footer"></div>
+	<div th:replace="~{frag :: footer}"></div>
 	
 </main>
 <script src="/barreDeRecherche.js"></script>

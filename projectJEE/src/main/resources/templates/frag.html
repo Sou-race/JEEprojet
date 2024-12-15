@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  </head>
+
   <body>
   	
   	<!-- HEADER FRAGMENT A INSERER -->
   	<div th:fragment="header" class="header">
-	  	<nav style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1030; background-color: black; padding: 0rem; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+	  	<nav>
 		  <ul>
 		    <li><a href="/">Home</a></li>
 		  </ul>
@@ -23,13 +21,14 @@
 		  </ul>
 		</nav>
 	</div>
-<main style="padding-top: 70px;"></main>
 
 	  
 	  
 	<!-- FOOTER FRAGMENT A INSERER -->
 	<div th:fragment="footer">
-		<footer></footer>
+		<footer>
+			<hr>
+		</footer>
 	</div>
     
   </body>

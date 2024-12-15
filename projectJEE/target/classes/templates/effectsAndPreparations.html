@@ -9,7 +9,7 @@
 <body>
 <main class="container">
 	<!-- Header : -->	
-	<div th:replace="frag :: header"></div>
+	<div th:replace="~{frag :: header}"></div>
 
 	<h1>All the effects and their detailed preparations :</h1>	
 	
@@ -39,7 +39,7 @@
 	</table></div>
 	
 	<!-- FOOTER -->
-	<div th:replace="frag :: footer"></div>
+	<div th:replace="~{frag :: footer}"></div>
 </main>
 </body>
 </html>

@@ -9,10 +9,9 @@
 <body>
 <main class="container">
 	<!-- Header : -->	
-	<div th:replace="frag :: header"></div>
+	<div th:replace="~{frag :: header}"></div>
 
 	<h1>See our shelf and stock :</h1>
-	<h3>(Insert cool shelf to see the stock and their location instead of a shitty HTML table)</h3>
 
 	<div class="table-wrapper"><table>	
 		<thead>
@@ -39,7 +38,7 @@
 	</table></div>
 	
 	<!-- FOOTER -->
-	<div th:replace="frag :: footer"></div>
+	<div th:replace="~{frag :: footer}"></div>
 </main> 
 </body>
 </html>

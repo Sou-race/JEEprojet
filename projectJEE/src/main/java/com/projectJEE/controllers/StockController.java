@@ -22,4 +22,6 @@ public class StockController {
 		model.addAttribute("stocks", stocks);
 		return "stocks";
 	}
+	
+
 }

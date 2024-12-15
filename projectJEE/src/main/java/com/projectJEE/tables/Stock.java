@@ -17,12 +17,13 @@ import jakarta.validation.constraints.Max;
 
 @Entity
 public class Stock {
+	public static final int MAX_SHELF_NUMBER = 15;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
 	@Min(value = 0, message = "This shelf number does not exist")
-	@Max(value = 150, message = "This shelf number does not exist. (We need to buy more furnitures !!)")
+	@Max(value = MAX_SHELF_NUMBER, message = "This shelf number does not exist. (We need to buy more furnitures !!)")
 	@OrderBy("shelfNumber ASC")
 	private int shelfNumber;	
 	

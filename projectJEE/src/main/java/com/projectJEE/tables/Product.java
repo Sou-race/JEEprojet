@@ -114,5 +114,9 @@ public class Product {
 	public void setPossibleEffectsAnfPreparations(List<EffectAndPreparation> possibleEffectsAnfPreparations) {
 		this.possibleEffectsAnfPreparations = possibleEffectsAnfPreparations;
 	}
+
+	public Set<Place> getPlaces() {
+		return this.places;
+	}
 	
 }

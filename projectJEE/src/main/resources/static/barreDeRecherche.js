@@ -39,7 +39,7 @@ function displaySuggestions(suggestions) {
 			suggestionElement.appendChild(productDescription);
 
 	        suggestionElement.addEventListener("click", () => {
-	            window.location.href = "/products/" + suggestion.id; // redirection vers la page du produit
+	            window.location.href = "/products?idProduct=" + suggestion.id; // redirection vers la page du produit
 	        });
 
 	        suggestionsBox.appendChild(suggestionElement); 

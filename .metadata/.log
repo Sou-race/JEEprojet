@@ -1314,3 +1314,12 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY org.eclipse.lsp4e 1 0 2024-12-15 08:12:41.510
 !MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 16:11:11.208
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 16:11:13.398
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.5.4 from path "C:\Users\ruben\Downloads\eclipse-jee-2024-09-R-win32-x86_64\eclipse\plugins\org.eclipse.wildwebdeveloper_1.2.3.202408270415\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-12-15 16:11:13.424
+!MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}

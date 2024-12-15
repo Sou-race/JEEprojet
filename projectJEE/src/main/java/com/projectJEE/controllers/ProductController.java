@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -130,6 +131,31 @@ public class ProductController {
 	            );
 	            return "redirect:/products";
 	        
+	    }
+	 
+	 
+	 
+	 @PostMapping("/products/{id}/edit")
+	    public String editProduct(@PathVariable Long id, 
+	                              @RequestParam String name,
+	                              @RequestParam String description,
+	                              @RequestParam String otherNames,
+	                              @RequestParam String picLink,
+	                              Model model) {
+	        
+	        Product product = productRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException("Product not found"));
+
+	        
+	        product.setName(name);
+	        product.setDescription(description);
+	        product.setOtherNames(Arrays.asList(otherNames.split("/")));
+	        product.setPicLink(picLink);
+
+	     
+	        productRepository.save(product);
+
+	        return "redirect:/products"; 
 	    }
 	 
 	 //TODO : ajouter des ProductNotFoundException ? au cas où

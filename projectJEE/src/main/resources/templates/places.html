@@ -12,35 +12,52 @@
 	<!-- Header : -->	
 	<div th:replace="~{frag :: header}"></div>
 
-	<h2>All the Places</h2>
-	<div class="table-wrapper">
-    	<table>
-        	<thead>
-            	<tr>
-                	<th>ID</th>
-                	<th>Place Name</th>
-                	<th>Longitude</th>
-                	<th>Latitude</th>
-                	<th>Actions</th>
-            	</tr>
-        	</thead>
-        	<tbody>
-            	<tr th:each="place : ${places}">
-                <td th:text="${place.id}">1</td>
-                <td th:text="${place.name}">Place Name</td>
-                <td th:text="${place.longitude}">0</td>
-                <td th:text="${place.latitude}">0</td>
-                <td>
+	<h1>All the places :</h1>	
+	
+	<div class="table-wrapper"><table>		
+		<thead>
+	       	 <tr>
+	            <th>ID</th>
+	            <th>Place Name</th>
+	            <th>Longitude</th>
+	            <th>Latitude</th>
+	            <th>Products</th>
+	        </tr>
+    	</thead>
+    	<tbody>
+	    	<tr th:each="place : ${places}">
+			<td th:text="${place.id}">XXX</td>
+			<td th:text="${place.name}">(NAME)</td>
+			<td th:text="${place.longitude}">(DESCRIPT)</td>
+			<td th:text="${place.latitude}">(DESCRIPT)</td>
+			<td>
+				<ul>
+					<li th:each="product : ${place.dispoProduct}" th:text="${product.name}">Product Name</li>
+				</ul>
+			</td>
+			<td>
+			<form class="product-form" th:attr="data-place-id=${place.id}">
+                		<select id="productSelect" name="productId" required>
+                    		<option value="" disabled selected>Select a product</option>
+                    		<option th:each="product : ${products}" th:value="${product.id}" th:text="${product.name}">
+                        		Product Name
+                    		</option>
+                		</select>
+                		<button type="button" class="btn btn-primary add-product-button">Add Product</button>
+                		<button type="button" class="btn btn-warning remove-product-button">Remove Product</button>
+            		</form>
+    		</td>
+    		<td>
                     <a th:href="@{/places/edit/{id}(id=${place.id})}" class="btn btn-warning">Edit</a>
                     <form th:action="@{/places/delete}" method="post" style="display:inline;">
                         <input type="hidden" name="id" th:value="${place.id}" />
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
-            	</tr>
-        	</tbody>
-    	</table>
-	</div>
+
+			</tr>
+    	</tbody>		
+	</table></div>
 	<h2>Add or Modify a Place</h2>
 	<form th:action="@{/places/save}" method="post">
     	<input type="hidden" name="id" th:value="${placeToEdit != null ? placeToEdit.id : ''}" />

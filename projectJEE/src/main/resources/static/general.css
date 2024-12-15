@@ -17,10 +17,10 @@ main {
 }
 
 .footer {
-    background-color: #13171F; 
+    background-color: #060b14; 
     color: white; 
     text-align: center; 
-    padding: 10px 0; 
+    padding: 5px; 
 }
 
 /* DropDown button (pour le trie) */

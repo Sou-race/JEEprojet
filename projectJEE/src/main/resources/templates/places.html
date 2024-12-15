@@ -48,30 +48,30 @@
             		</form>
     		</td>
     		<td>
-                    <a th:href="@{/places/edit/{id}(id=${place.id})}" class="btn btn-warning">Edit</a>
-                    <form th:action="@{/places/delete}" method="post" style="display:inline;">
-                        <input type="hidden" name="id" th:value="${place.id}" />
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
+                <a th:href="@{/places/edit/{id}(id=${place.id})}" class="btn btn-warning">Edit</a>
+                <form th:action="@{/places/delete}" method="post" style="display:inline;">
+                     <input type="hidden" name="id" th:value="${place.id}" />
+                     <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+           </td>
 
 			</tr>
     	</tbody>		
 	</table></div>
 	<h2>Add or Modify a Place</h2>
 	<form th:action="@{/places/save}" method="post">
-    	<input type="hidden" name="id" th:value="${placeToEdit != null ? placeToEdit.id : ''}" />
-    	<label for="placeName">Place Name:</label>
-    	<input type="text" id="placeName" name="name" th:value="${placeToEdit != null ? placeToEdit.name : ''}" required />
+    <input type="hidden" name="id" th:value="${placeToEdit != null ? placeToEdit.id : ''}" />
+    <label for="placeName">Place Name:</label>
+    <input type="text" id="placeName" name="name" th:value="${placeToEdit != null ? placeToEdit.name : ''}" required />
 
-    	<label for="latitude">Latitude:</label>
-    	<input type="number" id="latitude" name="latitude" th:value="${placeToEdit != null ? placeToEdit.latitude : ''}" required />
+    <label for="latitude">Latitude:</label>
+    <input type="number" id="latitude" name="latitude" th:value="${placeToEdit != null ? placeToEdit.latitude : ''}" required />
 
-    	<label for="longitude">Longitude:</label>
-    	<input type="number" id="longitude" name="longitude" th:value="${placeToEdit != null ? placeToEdit.longitude : ''}" required />
+    <label for="longitude">Longitude:</label>
+    <input type="number" id="longitude" name="longitude" th:value="${placeToEdit != null ? placeToEdit.longitude : ''}" required />
 
-    	<button type="submit" class="secondary">Save Place</button>
-	</form>
+    <button type="submit" class="secondary">Save Place</button>
+</form>
 	
 </main>
 

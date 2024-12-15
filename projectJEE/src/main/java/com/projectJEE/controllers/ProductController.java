@@ -145,9 +145,9 @@ public class ProductController {
 	 
 	 @DeleteMapping("/products/{id}")
 	 @ResponseBody
-	 public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
-		 productService.deleteProductWithAssociations(id);
-	     return ResponseEntity.ok("Product, its stock, and its associations were deleted successfully");
+	    public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
+	        productService.deleteProductWithAssociations(id);
+	        return ResponseEntity.ok("Product, its stock, and its associations were deleted successfully");
 	    }
 	 
 }

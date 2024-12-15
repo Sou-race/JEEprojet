@@ -34,13 +34,12 @@ public class Product {
 	@OneToOne(mappedBy = "stockedProduct", cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private Stock stock;	
 	
-	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<EffectAndPreparation> possibleEffectsAnfPreparations = new ArrayList<>();
 	
-	@ManyToMany(mappedBy = "dispoProduct", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToMany(mappedBy = "dispoProduct") 
 	private Set<Place> places;
 	
-
 	public Product() {}
 	public Product(String name, List<String> otherNames, ProductType type, String description, String picLink) {
 		super();

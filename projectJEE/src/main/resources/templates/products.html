@@ -138,13 +138,13 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Gestion du bouton "Delete" dans le modal
+      
         document.querySelector(".delete-product-btn").addEventListener("click", function () {
             const productId = this.getAttribute("data-product-id");
 
-            // Demander confirmation avant la suppression
+          
             if (confirm("Are you sure you want to delete this product?")) {
-                // Requête AJAX pour supprimer le produit
+                
                 fetch(`/products/${productId}`, {
                     method: "DELETE",
                 })
@@ -157,14 +157,13 @@
                     .then(data => {
                         alert("Product deleted successfully!");
 
-                        // Fermer le modal
+                      
                         const modal = document.querySelector(".productModal");
                         if (modal) {
-                            modal.style.display = "none"; // Cache le modal dynamiquement
+                            modal.style.display = "none"; 
                         }
 
-                        // Optionnel : Rafraîchir la liste des produits dynamiquement
-                        // document.location.reload(); // Si nécessaire
+                    
                     })
                     .catch(error => {
                         console.error("Error details:", error);

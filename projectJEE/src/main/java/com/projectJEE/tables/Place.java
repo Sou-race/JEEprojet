@@ -3,6 +3,7 @@ package com.projectJEE.tables;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -30,10 +31,10 @@ public class Place {
 
 	@ManyToMany
 	@JoinTable(
-			name="place_product",
-			joinColumns = @JoinColumn(name = "place_id"),
-			inverseJoinColumns = @JoinColumn(name = "product_id")
-		)
+	    name = "place_product", 
+	    joinColumns = @JoinColumn(name = "place_id"),
+	    inverseJoinColumns = @JoinColumn(name = "product_id")
+	)
 	private Set<Product> dispoProduct;
 	
 	public Place() {}

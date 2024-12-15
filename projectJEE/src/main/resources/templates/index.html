@@ -9,17 +9,17 @@
 <body>
 <main class="container">
 
-	<!-- Header : -->	
+	<!-- HEADER -->	
 	<div th:replace="frag :: header"></div>
-
-	
 
 	<h1>Welcome to ApoTakeCare !</h1>
 	<h4>Where all your troubles are taken care of thanks to our marvelous products !</h4>
 	
 	<section id="form">
 		<!-- Search -->
-        <input type="search" id="search" name="search" placeholder="Search (not functioning for now)" />
+        <input type="search" id="search" name="search" placeholder="Search for a product..." />
+        <!-- Suggestions -->
+   		<div id="suggestionsBox"></div>
 	</section>
 	
 	
@@ -38,5 +38,6 @@
 	<div th:replace="frag :: footer"></div>
 	
 </main>
+<script src="/barreDeRecherche.js"></script>
 </body>
 </html>

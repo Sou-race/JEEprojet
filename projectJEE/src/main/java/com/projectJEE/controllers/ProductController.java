@@ -2,6 +2,11 @@ package com.projectJEE.controllers;
 
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectJEE.repositories.ProductRepository;
 import com.projectJEE.tables.Product;
@@ -62,7 +68,27 @@ public class ProductController {
 	}
 	
 	
+	// Recherche :
 	
+	@GetMapping("/api/products/search")
+    @ResponseBody
+    public List<Map<String,Object>> searchProducts(@RequestParam("query") String query) {
+		List<Product> byName = productRepository.findByNameStartingWithIgnoreCase(query);
+		List<Product> byDescription = productRepository.findByDescriptionContainingIgnoreCase(query);
+		Set<Product> products = new LinkedHashSet<>();
+	    products.addAll(byName);
+	    products.addAll(byDescription);
+        return products.stream()
+        				.limit(10)
+		        		.map(product -> {
+		                    Map<String, Object> suggestion = new HashMap<>();
+		                    suggestion.put("name", product.getName());
+		                    suggestion.put("id", product.getId());
+		                    suggestion.put("description", product.getDescription());
+		                    return suggestion;
+		                })
+		                .collect(Collectors.toList());
+	}
 	
 	
 	/// Ajout :

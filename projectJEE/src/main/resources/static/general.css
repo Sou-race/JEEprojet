@@ -3,3 +3,35 @@
 .header{
 	padding-bottom : 50px;
 }
+
+
+#suggestionsBox {
+	display: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 1000;
+    width: 1440px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion {
+	color: White;
+	background-color: #13171F;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.suggestion p {
+    margin: 3px;
+    padding: 0;
+    font-size: 12px; 
+    color: #aaa; 
+}
+
+.suggestion:hover {
+    background-color: #05995b;
+}

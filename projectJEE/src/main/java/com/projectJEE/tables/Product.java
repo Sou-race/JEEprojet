@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Product {
 	
 	private String picLink;
 	
-	@OneToOne(mappedBy = "stockedProduct")
+	@OneToOne(mappedBy = "stockedProduct", cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private Stock stock;	
 	
 	@OneToMany(mappedBy = "usedProduct",fetch = FetchType.EAGER)

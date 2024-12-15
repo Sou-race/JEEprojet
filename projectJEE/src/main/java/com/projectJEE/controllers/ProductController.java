@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectJEE.repositories.ProductRepository;
+import com.projectJEE.repositories.StockRepository;
 import com.projectJEE.tables.Product;
 import com.projectJEE.tables.ProductType;
 
@@ -32,6 +35,8 @@ public class ProductController {
 	@Autowired 
 	ProductRepository productRepository;
 	
+	@Autowired
+	StockRepository stockRepository;
 	
 	/// Affichage : 
 	@GetMapping("/products")
@@ -128,10 +133,24 @@ public class ProductController {
 	 }
 	 
 	 //TODO : ajouter des ProductNotFoundException ? au cas où
-	 @DeleteMapping("/products/{id}")
+	 /*@DeleteMapping("/products/{id}")
 	  void deleteProduct(@PathVariable Long id) {
 		 productRepository.deleteById(id);
-	  }
+	  }*/
 	 
+	 
+	 @DeleteMapping("/products/{id}")
+	    @ResponseBody
+	    public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
+	        Product product = productRepository.findById(id)
+	                .orElseThrow(() -> new RuntimeException("Product not found"));
+
+	        if (product.getStock() != null) {
+	            stockRepository.delete(product.getStock());
+	        }
+
+	        productRepository.delete(product);
+	        return ResponseEntity.ok("Product and its stock deleted successfully");
+	    }
 	 
 }

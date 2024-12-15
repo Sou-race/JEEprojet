@@ -1,7 +1,26 @@
 @charset "UTF-8";
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 .header{
 	padding-bottom : 50px;
+}
+
+.footer {
+    background-color: #13171F; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
 }
 
 /* DropDown button (pour le trie) */

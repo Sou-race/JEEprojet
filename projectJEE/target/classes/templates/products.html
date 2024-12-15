@@ -24,7 +24,7 @@
 	<div>
 		<nav>
 		  <ul>
-		    <li><a role="button">Add a New Product</a></li>
+		    <li><a role="button" class="btn" href="/addNewProduct">Add a New Product</a></li>
 		  </ul>
 		  <ul>
 		    <details class="dropdown">
@@ -63,6 +63,7 @@
             <p><strong>Description : </strong>
             <span id="desc" th:text="${product.description}">(Product Description)</span>
             </p>
+            
         </div>
     </div>
 	
@@ -124,12 +125,54 @@
 	        	</div>	          
 	        </div>
 	    </div>
+	    <button class="delete-product-btn" th:attr="data-product-id=${selectedProduct.id}">Delete</button>
 	</div>
 	
 	
-	
-	<!-- FOOTER -->
-	<div th:replace="~{frag :: footer}"></div>
 </main>
+
+<!-- FOOTER -->
+	<div th:replace="~{frag :: footer}"></div>
+	
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Gestion du bouton "Delete" dans le modal
+        document.querySelector(".delete-product-btn").addEventListener("click", function () {
+            const productId = this.getAttribute("data-product-id");
+
+            // Demander confirmation avant la suppression
+            if (confirm("Are you sure you want to delete this product?")) {
+                // Requête AJAX pour supprimer le produit
+                fetch(`/products/${productId}`, {
+                    method: "DELETE",
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to delete product. Status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        alert("Product deleted successfully!");
+
+                        // Fermer le modal
+                        const modal = document.querySelector(".productModal");
+                        if (modal) {
+                            modal.style.display = "none"; // Cache le modal dynamiquement
+                        }
+
+                        // Optionnel : Rafraîchir la liste des produits dynamiquement
+                        // document.location.reload(); // Si nécessaire
+                    })
+                    .catch(error => {
+                        console.error("Error details:", error);
+                        alert("An error occurred while deleting the product.");
+                    });
+            }
+        });
+    });
+</script>
+
 </html>
